@@ -1,0 +1,96 @@
+{
+  "date": "2026-06-12",
+  "title": "PESC & electronic transcripts: records that travel",
+  "domain": "Records & Interoperability",
+  "difficulty": "advanced",
+  "estimatedMinutes": 10,
+  "xp": 115,
+  "summary": "When a student transfers, their transcript must move machine-to-machine, securely and in a standard shape. That's PESC's domain. Today: the College Transcript standard, the EDI heritage and the SPEEDE server, and the request→deliver→import exchange flow.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "What PESC standardizes",
+      "markdown": "**PESC** (Postsecondary Electronic Standards Council) develops free, open data standards for higher education. Its **College Transcript** standard lets institutions send **current and historical educational records** — personal info, academic status, **courses, grades, degrees, test scores** — for a student.\n\n- Current version: **College Transcript 1.8** (XML Technical Specification v2.2).\n- PESC standards are built through an **open, voluntary-consensus** process including a **30-day public comment** period before approval.\n- Heritage: the first **EDI** Transcript Standard was distributed in **1990**; today the **SPEEDE Server**, operated by the **National Student Clearinghouse**, supports secure EDI exchange among colleges, vendors, and states.",
+      "sources": [
+        { "title": "College Transcript — PESC", "url": "https://pesc.org/college-transcript" },
+        { "title": "Approved Standards — PESC", "url": "https://pesc.org/approved-standards" },
+        { "title": "EDI — PESC", "url": "https://pesc.org/edi" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "pesc-transcript",
+      "question": "What does the PESC College Transcript standard carry?",
+      "options": [
+        "A student's academic records — courses, grades, degrees, test scores",
+        "Financial aid disbursement schedules",
+        "Campus network configuration",
+        "Library fines"
+      ],
+      "answerIndex": 0,
+      "explanation": "The College Transcript standard transmits current and historical educational records: personal info, academic status, courses, grades, degrees, and test scores.",
+      "sources": [{ "title": "College Transcript — PESC", "url": "https://pesc.org/college-transcript" }]
+    },
+    {
+      "type": "mcq",
+      "id": "speede",
+      "question": "Which server — now run by the National Student Clearinghouse — supports secure EDI transcript exchange?",
+      "options": ["SPEEDE", "SPEED-X", "FAFSA", "ISIR"],
+      "answerIndex": 0,
+      "explanation": "The SPEEDE Server supports secure electronic exchange of student records among colleges, vendors, and states, and is now operated by the National Student Clearinghouse.",
+      "sources": [{ "title": "EDI — PESC", "url": "https://pesc.org/edi" }]
+    },
+    {
+      "type": "mcq",
+      "id": "pesc-process",
+      "question": "How are PESC standards developed and approved?",
+      "options": [
+        "Open, voluntary-consensus with a 30-day public comment period",
+        "Decided privately by a single vendor",
+        "Enacted only by federal law",
+        "Auto-generated with no review"
+      ],
+      "answerIndex": 0,
+      "explanation": "PESC standards are workgroup-developed and ratified through an open, voluntary-consensus process that includes a 30-day public comment period before approval.",
+      "sources": [{ "title": "Approved Standards — PESC", "url": "https://pesc.org/approved-standards" }]
+    },
+    {
+      "type": "diagram",
+      "title": "Electronic transcript exchange",
+      "mermaid": "flowchart TD\n  A[Receiver sends Request] --> B[Sender returns Response]\n  B --> C[Receiver sends Acknowledgement]\n  C --> D[Sender produces Transcript]\n  D --> E[Deliver via SPEEDE server]\n  E --> F[Import into receiving system]",
+      "steps": [
+        { "node": "A", "title": "Request", "caption": "The receiving institution requests a transcript." },
+        { "node": "B", "title": "Response", "caption": "The sending institution responds to the request." },
+        { "node": "C", "title": "Acknowledgement", "caption": "The receiver acknowledges, keeping the exchange reliable." },
+        { "node": "D", "title": "Produce transcript", "caption": "The sender generates the standardized transcript document." },
+        { "node": "E", "title": "Deliver via SPEEDE", "caption": "The record is exchanged through the SPEEDE server." },
+        { "node": "F", "title": "Import", "caption": "The receiving SIS ingests the transcript." }
+      ],
+      "caption": "PESC's EDI 'suite' (Request, Response, Acknowledgement, Batch, Transcript) is what makes the handshake reliable.",
+      "sources": [{ "title": "EDI — PESC", "url": "https://pesc.org/edi" }]
+    },
+    {
+      "type": "news",
+      "headline": "PESC holds its April 2026 Data Summit",
+      "summary": "PESC held its **Data Summit, 'Composing Smarter Data Solutions', on April 22–23, 2026** in New Orleans — the community venue where workgroups (including the **JSON-LD Transcript** effort modernizing the XML standard) advance higher-ed data interoperability.",
+      "date": "2026-04-22",
+      "source": { "title": "PESC Data Summit April 2026 — PESC", "url": "https://pesc.org/pesc-data-summit-april-2026" }
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**PESC** sets open higher-ed data standards; **College Transcript 1.8** (XML) carries academic records.",
+        "**EDI heritage since 1990**; the **SPEEDE server** (National Student Clearinghouse) moves records securely.",
+        "Standards are approved via **open consensus + 30-day comment**.",
+        "A **JSON-LD Transcript** is emerging — a chance for a modern SIS to lead instead of follow."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "PESC", "definition": "Postsecondary Electronic Standards Council — develops free, open education data standards (e.g., the College Transcript).", "sources": [{ "title": "College Transcript — PESC", "url": "https://pesc.org/college-transcript" }] },
+    { "term": "SPEEDE", "definition": "A server for secure electronic exchange of student records (EDI), operated by the National Student Clearinghouse.", "sources": [{ "title": "EDI — PESC", "url": "https://pesc.org/edi" }] },
+    { "term": "EDI", "definition": "Electronic Data Interchange — machine-to-machine structured-data exchange; PESC's transcript EDI standards date to 1990.", "sources": [{ "title": "EDI — PESC", "url": "https://pesc.org/edi" }] },
+    { "term": "JSON-LD Transcript", "definition": "A PESC workgroup effort building a JSON-LD version of the Transcript standard alongside the XML one.", "sources": [{ "title": "JSON-LD Transcript — PESC", "url": "https://pesc.org/json-transcript" }] }
+  ],
+  "reflection": "Would you implement PESC XML (1.8) and the emerging JSON-LD transcript for outbound transcripts in ManageArk? How does standards-native exchange beat the bespoke transcript handling in legacy systems?"
+}

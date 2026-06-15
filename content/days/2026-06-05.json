@@ -1,0 +1,101 @@
+{
+  "date": "2026-06-05",
+  "title": "Credit hours, the Carnegie Unit & how GPA is computed",
+  "domain": "Academic Records",
+  "difficulty": "intro",
+  "estimatedMinutes": 10,
+  "xp": 100,
+  "summary": "The credit hour is the atom of US higher education — it drives tuition, financial aid, full-time status, and GPA. Today: the federal definition, its Carnegie-Unit origin, and the exact arithmetic of a GPA your SIS must get right every time.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "What a credit hour actually is",
+      "markdown": "A **credit hour** is the US federal unit of student academic work. The regulation (**34 CFR § 600.2**) defines it as an institutionally-established, accreditor-approved amount of work that reasonably approximates:\n\n- **≥ 1 hour** of classroom or direct faculty instruction, **plus**\n- **≥ 2 hours** of out-of-class student work,\n\n…each week for roughly **15 weeks** (or the equivalent over a 10–12 week quarter).\n\nIts ancestor is the **Carnegie Unit**, introduced in **1906** as a time-based measure of study. A US bachelor's degree typically requires about **120 credit hours**.",
+      "sources": [
+        { "title": "34 CFR § 600.2 (credit hour) — eCFR", "url": "https://www.ecfr.gov/current/title-34/section-600.2" },
+        { "title": "What Is the Carnegie Unit? — Carnegie Foundation", "url": "https://www.carnegiefoundation.org/about/faqs/the-carnegie-unit/" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "credit-hour-def",
+      "question": "Per the US federal definition (34 CFR § 600.2), one semester credit hour reasonably approximates how much weekly work?",
+      "options": [
+        "≥ 1 hour of instruction + ≥ 2 hours of out-of-class work (~15 weeks)",
+        "3 hours of instruction only, with no outside work",
+        "1 hour total per week",
+        "10 hours of instruction per week"
+      ],
+      "answerIndex": 0,
+      "explanation": "The federal credit-hour definition pairs at least one hour of instruction with at least two hours of out-of-class work weekly for about 15 weeks (or equivalent). That 1:2 ratio is the heart of it.",
+      "sources": [{ "title": "34 CFR § 600.2 — eCFR", "url": "https://www.ecfr.gov/current/title-34/section-600.2" }]
+    },
+    {
+      "type": "concept",
+      "title": "From grades to GPA",
+      "markdown": "GPA is simple arithmetic the SIS must never get wrong:\n\n1. Each letter grade maps to a **grade-point value** (e.g., A = 4.0, B = 3.0).\n2. **Quality points** for a course = **grade points × credit hours**.\n3. **GPA = total quality points ÷ total GPA hours** (the credits that count toward GPA).\n\nExample: an **A (4.0)** in a 3-credit course and a **B (3.0)** in a 4-credit course →\n`(4.0×3) + (3.0×4) = 24` quality points over `7` hours → **24 ÷ 7 = 3.43**.",
+      "sources": [
+        { "title": "Calculate Your GPA — University of Illinois Registrar", "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "quality-points",
+      "question": "How are a course's quality points computed?",
+      "options": [
+        "grade points × credit hours",
+        "credit hours ÷ grade points",
+        "grade points + credit hours",
+        "credit hours alone"
+      ],
+      "answerIndex": 0,
+      "explanation": "Quality points = grade points × credit hours. Summing quality points and dividing by total GPA hours yields the GPA.",
+      "sources": [{ "title": "Calculate Your GPA — Univ. of Illinois Registrar", "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/" }]
+    },
+    {
+      "type": "mcq",
+      "id": "gpa-calc",
+      "question": "A student earns an A (4.0) in a 3-credit course and a B (3.0) in a 4-credit course. What is the GPA?",
+      "options": ["3.43", "3.50", "3.00", "2.86"],
+      "answerIndex": 0,
+      "explanation": "Quality points = (4.0×3) + (3.0×4) = 12 + 12 = 24. GPA hours = 3 + 4 = 7. GPA = 24 ÷ 7 = 3.43.",
+      "sources": [{ "title": "Calculate Your GPA — Univ. of Illinois Registrar", "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/" }]
+    },
+    {
+      "type": "diagram",
+      "title": "Computing a term GPA",
+      "mermaid": "flowchart TD\n  A[Map each grade to grade points] --> B[Multiply by the course credit hours]\n  B --> C[Quality points per course]\n  C --> D[Sum all quality points]\n  D --> E[Sum all GPA hours]\n  E --> F[GPA = points / hours]",
+      "steps": [
+        { "node": "A", "title": "Grade → grade points", "caption": "A=4.0, B=3.0, etc., per the institution's grade scale." },
+        { "node": "B", "title": "× credit hours", "caption": "Weight each grade by how many credits the course carries." },
+        { "node": "C", "title": "Quality points per course", "caption": "grade points × credits = quality points for that course." },
+        { "node": "D", "title": "Sum quality points", "caption": "Add quality points across all courses." },
+        { "node": "E", "title": "Sum GPA hours", "caption": "Add the credit hours that count toward GPA." },
+        { "node": "F", "title": "Divide", "caption": "GPA = total quality points ÷ total GPA hours." }
+      ],
+      "caption": "Every SIS gradebook reduces to this pipeline — get the grade-scale values and the GPA-hours rule right and the GPA follows.",
+      "sources": [{ "title": "Calculate Your GPA — Univ. of Illinois Registrar", "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/" }]
+    },
+    {
+      "type": "flashcard",
+      "front": "**Quality points** vs **GPA hours** — what's the difference?",
+      "back": "**Quality points** = grade points × credits (computed per course, then summed). **GPA hours** = the credit hours that count toward the GPA. **GPA = total quality points ÷ total GPA hours.**"
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "A **credit hour** (34 CFR § 600.2) ≈ 1 hour instruction + 2 hours outside work, weekly, ~15 weeks.",
+        "It descends from the **1906 Carnegie Unit**; a US bachelor's ≈ **120 credit hours**.",
+        "**GPA = Σ(grade points × credits) ÷ Σ(GPA hours)** — store grade-scale values explicitly so recalcs stay correct.",
+        "Repeats, incompletes, and non-GPA courses change which hours count — model that in the gradebook."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "Credit hour", "definition": "US federal unit of student work (34 CFR § 600.2): ≈ 1 hour of instruction + 2 hours of out-of-class work weekly for ~15 weeks.", "sources": [{ "title": "34 CFR § 600.2", "url": "https://www.ecfr.gov/current/title-34/section-600.2" }] },
+    { "term": "Carnegie Unit", "definition": "A time-based measure of academic study introduced in 1906; the historical basis of the higher-ed credit hour.", "sources": [{ "title": "Carnegie Foundation FAQ", "url": "https://www.carnegiefoundation.org/about/faqs/the-carnegie-unit/" }] },
+    { "term": "Quality points", "definition": "grade points × credit hours for a course; summed across courses for the GPA numerator.", "sources": [{ "title": "Univ. of Illinois Registrar", "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/" }] },
+    { "term": "GPA hours", "definition": "The credit hours counted toward GPA (the GPA denominator); not all enrolled credits always count.", "sources": [{ "title": "Univ. of Illinois Registrar", "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/" }] }
+  ],
+  "reflection": "How should ManageArk store grade-point values per grade scale (and per tenant) so GPA recalculates correctly when a grade changes, a course is repeated, or a tenant uses a non-standard scale?"
+}

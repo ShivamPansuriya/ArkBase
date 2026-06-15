@@ -1,0 +1,98 @@
+{
+  "date": "2026-06-08",
+  "title": "Title IV: the US federal financial-aid lifecycle",
+  "domain": "Financial Aid",
+  "difficulty": "core",
+  "estimatedMinutes": 12,
+  "xp": 120,
+  "summary": "Federal student aid is a regulated pipeline from FAFSA to disbursement — and back, if a student withdraws. Today: the SAI that replaced the EFC, how need is calculated, the 2026-27 Pell maximum, and the Return of Title IV (R2T4) rule.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "How federal aid is calculated",
+      "markdown": "A US student files the **FAFSA**; the school then computes need:\n\n> **Need = Cost of Attendance (COA) − Student Aid Index (SAI) − other financial assistance**\n\nThe big recent change: the **FAFSA Simplification Act replaced the Expected Family Contribution (EFC) with the Student Aid Index (SAI)** beginning in the **2024-25** award year. Unlike EFC, the **SAI can be negative — as low as −1,500** — to better signal high need.\n\nThe **maximum Federal Pell Grant is $7,395 for 2026-27** (July 1, 2026 – June 30, 2027).",
+      "sources": [
+        { "title": "How Financial Aid Is Calculated — Federal Student Aid", "url": "https://studentaid.gov/complete-aid-process/how-calculated" },
+        { "title": "GEN-23-11: FAFSA Simplification (EFC → SAI) — FSA", "url": "https://fsapartners.ed.gov/knowledge-center/library/dear-colleague-letters/2023-08-04/fafsa-simplification-act-changes-implementation-2024-25", "date": "2023-08-04" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "efc-to-sai",
+      "question": "The FAFSA Simplification Act replaced the Expected Family Contribution (EFC) with what, starting in 2024-25?",
+      "options": ["The Student Aid Index (SAI)", "Adjusted Gross Income", "Cost of Attendance", "The Pell Index"],
+      "answerIndex": 0,
+      "explanation": "Beginning with the 2024-25 award year, the SAI replaced the EFC as the index used to determine federal aid eligibility.",
+      "sources": [{ "title": "GEN-23-11 — FSA", "url": "https://fsapartners.ed.gov/knowledge-center/library/dear-colleague-letters/2023-08-04/fafsa-simplification-act-changes-implementation-2024-25" }]
+    },
+    {
+      "type": "mcq",
+      "id": "sai-negative",
+      "question": "Unlike the old EFC, the Student Aid Index (SAI) can be…",
+      "options": [
+        "negative — as low as −1,500 (signaling higher need)",
+        "never below zero",
+        "expressed only as a percentage",
+        "exactly equal to tuition"
+      ],
+      "answerIndex": 0,
+      "explanation": "The SAI can go as low as −1,500. A negative SAI indicates greater financial need than EFC's floor of zero could express.",
+      "sources": [{ "title": "GEN-23-11 — FSA", "url": "https://fsapartners.ed.gov/knowledge-center/library/dear-colleague-letters/2023-08-04/fafsa-simplification-act-changes-implementation-2024-25" }]
+    },
+    {
+      "type": "mcq",
+      "id": "r2t4-60",
+      "question": "A Title IV recipient withdraws after completing more than 60% of the payment period. Under R2T4, what happens?",
+      "options": [
+        "100% of the aid is considered earned — no return required",
+        "100% of the aid must be returned",
+        "Exactly 60% must be returned",
+        "The student must immediately re-enroll"
+      ],
+      "answerIndex": 0,
+      "explanation": "Return of Title IV (R2T4) prorates earned aid by time enrolled — but once a student passes 60% of the payment period, 100% of the aid is treated as earned and no return is required.",
+      "sources": [{ "title": "Return of Title IV Funds — FSA", "url": "https://fsapartners.ed.gov/financial-aid-delivery/return-of-title-iv-funds" }]
+    },
+    {
+      "type": "diagram",
+      "title": "The Title IV aid lifecycle",
+      "mermaid": "flowchart TD\n  A[Student submits FAFSA] --> B[School receives ISIR / SAI]\n  B --> C[Verification if selected]\n  C --> D[Package and award: COA - SAI - aid]\n  D --> E[Disburse aid]\n  E --> F[R2T4 recalculation if student withdraws]",
+      "steps": [
+        { "node": "A", "title": "Submit FAFSA", "caption": "The student applies for federal aid." },
+        { "node": "B", "title": "ISIR / SAI", "caption": "The school receives the processed FAFSA (ISIR) with the SAI." },
+        { "node": "C", "title": "Verification", "caption": "If selected, the school confirms the reported data." },
+        { "node": "D", "title": "Package & award", "caption": "Need = COA − SAI − other aid; the school builds the award package." },
+        { "node": "E", "title": "Disburse", "caption": "Aid is disbursed to the student's account." },
+        { "node": "F", "title": "R2T4 on withdrawal", "caption": "If the student withdraws, recalculate earned vs unearned aid." }
+      ],
+      "caption": "This pipeline maps cleanly onto SIS states + events — and the R2T4 branch is the one most likely to be done wrong.",
+      "sources": [
+        { "title": "How Financial Aid Is Calculated — FSA", "url": "https://studentaid.gov/complete-aid-process/how-calculated" },
+        { "title": "Return of Title IV Funds — FSA", "url": "https://fsapartners.ed.gov/financial-aid-delivery/return-of-title-iv-funds" }
+      ]
+    },
+    {
+      "type": "news",
+      "headline": "2026-27 maximum Pell Grant set at $7,395",
+      "summary": "For the **2026-27 award year** (July 1, 2026 – June 30, 2027), the maximum **Federal Pell Grant** is **$7,395**. The exact amount a student receives depends on their SAI, cost of attendance, enrollment intensity, and whether they attend a full year.",
+      "date": "2026-27 award year",
+      "source": { "title": "Federal Pell Grants — Federal Student Aid", "url": "https://studentaid.gov/understand-aid/types/grants/pell" }
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**Need = COA − SAI − other aid**; the **SAI replaced the EFC** in 2024-25 and can be **negative (to −1,500)**.",
+        "**ISIR** = the processed FAFSA record the school receives.",
+        "**Max Pell = $7,395** for **2026-27**.",
+        "**R2T4**: past **60%** of the payment period, all aid is earned — model withdrawal as a recalculation event."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "SAI (Student Aid Index)", "definition": "Index from the FAFSA used to determine federal aid eligibility (replaced the EFC in 2024-25); can be negative, as low as −1,500.", "sources": [{ "title": "GEN-23-11 — FSA", "url": "https://fsapartners.ed.gov/knowledge-center/library/dear-colleague-letters/2023-08-04/fafsa-simplification-act-changes-implementation-2024-25" }] },
+    { "term": "COA (Cost of Attendance)", "definition": "Total estimated annual cost to attend (tuition, housing, books, etc.); the starting point for need.", "sources": [{ "title": "How Aid Is Calculated — FSA", "url": "https://studentaid.gov/complete-aid-process/how-calculated" }] },
+    { "term": "ISIR", "definition": "Institutional Student Information Record — the processed FAFSA data (including federal tax info) sent to schools.", "sources": [{ "title": "How Aid Is Calculated — FSA", "url": "https://studentaid.gov/complete-aid-process/how-calculated" }] },
+    { "term": "R2T4", "definition": "Return of Title IV Funds — recalculation of earned aid when a recipient withdraws; past 60% of the term, all aid is earned.", "sources": [{ "title": "Return of Title IV Funds — FSA", "url": "https://fsapartners.ed.gov/financial-aid-delivery/return-of-title-iv-funds" }] }
+  ],
+  "reflection": "Model the aid record in ManageArk as a state machine: SAI received → packaged → disbursed → (withdrawn → R2T4). What events trigger an R2T4 recalculation, and who must approve a return?"
+}

@@ -1,0 +1,513 @@
+{
+  "updatedAt": "2026-06-15",
+  "terms": [
+    {
+      "term": "Academic session",
+      "definition": "A term, semester, or grading period. OneRoster models these explicitly as `academicSessions`.",
+      "sources": [
+        {
+          "title": "OneRoster v1.2",
+          "url": "https://www.imsglobal.org/spec/oneroster/v1p2"
+        }
+      ]
+    },
+    {
+      "term": "AGS",
+      "definition": "Assignment & Grade Services 2.0 — the LTI Advantage service that syncs grades from a tool into the LMS gradebook.",
+      "sources": [
+        {
+          "title": "LTI Advantage Cert Guide",
+          "url": "https://www.imsglobal.org/spec/lti/v1p3/cert"
+        }
+      ]
+    },
+    {
+      "term": "Caliper Analytics",
+      "definition": "A 1EdTech specification with a structured vocabulary for capturing learning/usage events (Actor–Action–Object) in JSON-LD; current version 1.2.",
+      "sources": [
+        {
+          "title": "Caliper 1.2 Spec",
+          "url": "https://www.imsglobal.org/spec/caliper/v1p2"
+        }
+      ]
+    },
+    {
+      "term": "Carnegie Unit",
+      "definition": "A time-based measure of academic study introduced in 1906; the historical basis of the higher-ed credit hour.",
+      "sources": [
+        {
+          "title": "Carnegie Foundation FAQ",
+          "url": "https://www.carnegiefoundation.org/about/faqs/the-carnegie-unit/"
+        }
+      ]
+    },
+    {
+      "term": "CEDS",
+      "definition": "Common Education Data Standards — a national common vocabulary/data dictionary of shared education data elements, maintained by NCES (U.S. Dept of Education).",
+      "sources": [
+        {
+          "title": "CEDS Home",
+          "url": "https://ceds.ed.gov/"
+        }
+      ]
+    },
+    {
+      "term": "COA (Cost of Attendance)",
+      "definition": "Total estimated annual cost to attend (tuition, housing, books, etc.); the starting point for need.",
+      "sources": [
+        {
+          "title": "How Aid Is Calculated — FSA",
+          "url": "https://studentaid.gov/complete-aid-process/how-calculated"
+        }
+      ]
+    },
+    {
+      "term": "Competency-Based Education (CBE)",
+      "definition": "An education model where progress is based on demonstrated mastery of competencies rather than time/seat hours.",
+      "sources": [
+        {
+          "title": "34 CFR § 668.10",
+          "url": "https://www.ecfr.gov/current/title-34/section-668.10"
+        }
+      ]
+    },
+    {
+      "term": "Credit hour",
+      "definition": "US federal unit of student work (34 CFR § 600.2): ≈ 1 hour of instruction + 2 hours of out-of-class work weekly for ~15 weeks.",
+      "sources": [
+        {
+          "title": "34 CFR § 600.2",
+          "url": "https://www.ecfr.gov/current/title-34/section-600.2"
+        }
+      ]
+    },
+    {
+      "term": "Deep Linking",
+      "definition": "LTI Advantage service for selecting tool content from within the LMS and embedding it.",
+      "sources": [
+        {
+          "title": "LTI Advantage Cert Guide",
+          "url": "https://www.imsglobal.org/spec/lti/v1p3/cert"
+        }
+      ]
+    },
+    {
+      "term": "Degree audit",
+      "definition": "A progress report mapping a student's transcript against degree/major/minor requirements in real time.",
+      "sources": [
+        {
+          "title": "Penn State Registrar",
+          "url": "https://www.registrar.psu.edu/degree-planning/degree-audit.cfm"
+        }
+      ]
+    },
+    {
+      "term": "Direct assessment",
+      "definition": "Measuring learning by directly assessing knowledge/skills/abilities in lieu of credit or clock hours (34 CFR § 668.10).",
+      "sources": [
+        {
+          "title": "34 CFR § 668.10",
+          "url": "https://www.ecfr.gov/current/title-34/section-668.10"
+        }
+      ]
+    },
+    {
+      "term": "Directory information",
+      "definition": "FERPA category of non-harmful info (e.g., name, dates of attendance) that may be disclosed without consent unless the student opts out; excludes SSN.",
+      "sources": [
+        {
+          "title": "34 CFR § 99.3",
+          "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.3"
+        }
+      ]
+    },
+    {
+      "term": "Ed-Fi",
+      "definition": "An open-source education Data Standard + Unifying Data Model plus the ODS/API technology suite, backed by the Michael & Susan Dell Foundation, used to connect SIS, assessment, rostering, and LMS data.",
+      "sources": [
+        {
+          "title": "What is the Ed-Fi Alliance",
+          "url": "https://www.ed-fi.org/what-is-ed-fi/"
+        }
+      ]
+    },
+    {
+      "term": "EDI",
+      "definition": "Electronic Data Interchange — machine-to-machine structured-data exchange; PESC's transcript EDI standards date to 1990.",
+      "sources": [
+        {
+          "title": "EDI — PESC",
+          "url": "https://pesc.org/edi"
+        }
+      ]
+    },
+    {
+      "term": "Education record",
+      "definition": "A record directly related to a student and maintained by an educational institution or party acting for it.",
+      "sources": [
+        {
+          "title": "34 CFR § 99.3",
+          "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.3"
+        }
+      ]
+    },
+    {
+      "term": "Eligible student",
+      "definition": "A student who is 18+ or enrolled in a postsecondary institution; FERPA rights transfer from parent to this student.",
+      "sources": [
+        {
+          "title": "What is FERPA?",
+          "url": "https://studentprivacy.ed.gov/faq/what-ferpa"
+        }
+      ]
+    },
+    {
+      "term": "FERPA",
+      "definition": "Family Educational Rights and Privacy Act — US federal law (20 U.S.C. § 1232g; 34 CFR Part 99) giving students/parents rights over education records and limiting disclosure of PII.",
+      "sources": [
+        {
+          "title": "What is FERPA?",
+          "url": "https://studentprivacy.ed.gov/faq/what-ferpa"
+        }
+      ]
+    },
+    {
+      "term": "GPA hours",
+      "definition": "The credit hours counted toward GPA (the GPA denominator); not all enrolled credits always count.",
+      "sources": [
+        {
+          "title": "Univ. of Illinois Registrar",
+          "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/"
+        }
+      ]
+    },
+    {
+      "term": "Graduation clearance",
+      "definition": "The registrar's final audit after final grades confirming all requirements are met.",
+      "sources": [
+        {
+          "title": "UNH DegreeWorks",
+          "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools"
+        }
+      ]
+    },
+    {
+      "term": "ID token",
+      "definition": "A signed JWT issued by an OpenID Provider asserting the end-user's identity in OIDC.",
+      "sources": [
+        {
+          "title": "How OpenID Connect Works",
+          "url": "https://openid.net/developers/how-connect-works/"
+        }
+      ]
+    },
+    {
+      "term": "IdP (Identity Provider)",
+      "definition": "The party that authenticates the user and issues assertions/tokens (e.g., a campus SSO).",
+      "sources": [
+        {
+          "title": "SAML — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/SAML"
+        }
+      ]
+    },
+    {
+      "term": "IPEDS",
+      "definition": "Integrated Postsecondary Education Data System — NCES's mandatory annual surveys for Title IV institutions.",
+      "sources": [
+        {
+          "title": "About IPEDS — NCES",
+          "url": "https://nces.ed.gov/ipeds/about-ipeds"
+        }
+      ]
+    },
+    {
+      "term": "ISIR",
+      "definition": "Institutional Student Information Record — the processed FAFSA data (including federal tax info) sent to schools.",
+      "sources": [
+        {
+          "title": "How Aid Is Calculated — FSA",
+          "url": "https://studentaid.gov/complete-aid-process/how-calculated"
+        }
+      ]
+    },
+    {
+      "term": "JSON-LD Transcript",
+      "definition": "A PESC workgroup effort building a JSON-LD version of the Transcript standard alongside the XML one.",
+      "sources": [
+        {
+          "title": "JSON-LD Transcript — PESC",
+          "url": "https://pesc.org/json-transcript"
+        }
+      ]
+    },
+    {
+      "term": "LMS",
+      "definition": "Learning Management System (e.g., Canvas, Moodle) — delivers course content and activities; it consumes rosters from and returns grades to the SIS."
+    },
+    {
+      "term": "LTI",
+      "definition": "Learning Tools Interoperability (1EdTech) — standard for launching external tools/content from an LMS; v1.3 uses OIDC + signed JWTs.",
+      "sources": [
+        {
+          "title": "LTI Core 1.3",
+          "url": "https://www.imsglobal.org/spec/lti/v1p3"
+        }
+      ]
+    },
+    {
+      "term": "Metric Profile",
+      "definition": "A Caliper domain vocabulary that constrains which actions/events are valid (e.g., assessment, media).",
+      "sources": [
+        {
+          "title": "xAPI/Caliper Comparison",
+          "url": "https://www.imsglobal.org/initial-xapicaliper-comparison"
+        }
+      ]
+    },
+    {
+      "term": "NCES",
+      "definition": "National Center for Education Statistics, within the U.S. Department of Education; operates IPEDS.",
+      "sources": [
+        {
+          "title": "About IPEDS — NCES",
+          "url": "https://nces.ed.gov/ipeds/about-ipeds"
+        }
+      ]
+    },
+    {
+      "term": "NRPS",
+      "definition": "Names & Role Provisioning Services 2.0 — LTI Advantage service that shares a course's roster/enrollments with a tool.",
+      "sources": [
+        {
+          "title": "LTI Advantage Cert Guide",
+          "url": "https://www.imsglobal.org/spec/lti/v1p3/cert"
+        }
+      ]
+    },
+    {
+      "term": "ODS/API",
+      "definition": "Ed-Fi's Operational Data Store and its REST API — the technology suite that stores and moves data shaped by the Ed-Fi Data Standard.",
+      "sources": [
+        {
+          "title": "Ed-Fi Spring 2026 Releases",
+          "url": "https://docs.ed-fi.org/blog/2026/05/11/"
+        }
+      ]
+    },
+    {
+      "term": "OneRoster",
+      "definition": "A 1EdTech standard for securely exchanging roster info, course materials, and grades between systems (e.g., SIS ↔ LMS), via CSV bulk or REST. v1.2 splits into Rostering, Gradebook, and Resource services.",
+      "sources": [
+        {
+          "title": "OneRoster — 1EdTech",
+          "url": "https://www.1edtech.org/standards/oneroster"
+        }
+      ]
+    },
+    {
+      "term": "PESC",
+      "definition": "Postsecondary Electronic Standards Council — develops free, open education data standards (e.g., the College Transcript).",
+      "sources": [
+        {
+          "title": "College Transcript — PESC",
+          "url": "https://pesc.org/college-transcript"
+        }
+      ]
+    },
+    {
+      "term": "Quality points",
+      "definition": "grade points × credit hours for a course; summed across courses for the GPA numerator.",
+      "sources": [
+        {
+          "title": "Univ. of Illinois Registrar",
+          "url": "https://registrar.illinois.edu/courses-grades/calculate-your-gpa/"
+        }
+      ]
+    },
+    {
+      "term": "R2T4",
+      "definition": "Return of Title IV Funds — recalculation of earned aid when a recipient withdraws; past 60% of the term, all aid is earned.",
+      "sources": [
+        {
+          "title": "Return of Title IV Funds — FSA",
+          "url": "https://fsapartners.ed.gov/financial-aid-delivery/return-of-title-iv-funds"
+        }
+      ]
+    },
+    {
+      "term": "Reporting period",
+      "definition": "One of the three IPEDS collection windows: Fall, Winter, or Spring.",
+      "sources": [
+        {
+          "title": "IPEDS Survey Components — NCES",
+          "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components"
+        }
+      ]
+    },
+    {
+      "term": "Requirement block",
+      "definition": "A grouped set of degree/major/minor rules (credits, GPA, specific courses) the audit evaluates.",
+      "sources": [
+        {
+          "title": "UNH DegreeWorks",
+          "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools"
+        }
+      ]
+    },
+    {
+      "term": "Rostering",
+      "definition": "Provisioning students, teachers, and classes into systems. OneRoster's Rostering service standardizes this exchange.",
+      "sources": [
+        {
+          "title": "OneRoster v1.2",
+          "url": "https://www.imsglobal.org/spec/oneroster/v1p2"
+        }
+      ]
+    },
+    {
+      "term": "SAI (Student Aid Index)",
+      "definition": "Index from the FAFSA used to determine federal aid eligibility (replaced the EFC in 2024-25); can be negative, as low as −1,500.",
+      "sources": [
+        {
+          "title": "GEN-23-11 — FSA",
+          "url": "https://fsapartners.ed.gov/knowledge-center/library/dear-colleague-letters/2023-08-04/fafsa-simplification-act-changes-implementation-2024-25"
+        }
+      ]
+    },
+    {
+      "term": "SAML assertion",
+      "definition": "A signed XML packet of security statements (authentication, attribute, authorization decision) about a subject.",
+      "sources": [
+        {
+          "title": "SAML — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/SAML"
+        }
+      ]
+    },
+    {
+      "term": "Schedule of classes",
+      "definition": "The set of course sections offered in a term. The prior like-term's schedule is the template used during term rollover.",
+      "sources": [
+        {
+          "title": "Class Scheduling Workflow — Penn State Registrar",
+          "url": "https://registrar.psu.edu/faculty-staff/scheduling/class-scheduling/workflow.cfm"
+        }
+      ]
+    },
+    {
+      "term": "Seat time",
+      "definition": "Credit earned based on time enrolled/instructional hours — the assumption CBE departs from.",
+      "sources": [
+        {
+          "title": "34 CFR § 668.10",
+          "url": "https://www.ecfr.gov/current/title-34/section-668.10"
+        }
+      ]
+    },
+    {
+      "term": "Sensor",
+      "definition": "The Caliper library embedded in a tool that emits learning-event data.",
+      "sources": [
+        {
+          "title": "Caliper 1.2 Spec",
+          "url": "https://www.imsglobal.org/spec/caliper/v1p2"
+        }
+      ]
+    },
+    {
+      "term": "SIS",
+      "definition": "Student Information System — the system of record for students, enrollment, courses, grades, and academic records. ManageArk is an enterprise-scale, cloud-native SIS."
+    },
+    {
+      "term": "SP / RP",
+      "definition": "Service Provider (SAML) / Relying Party (OIDC) — the application that relies on the IdP to authenticate users.",
+      "sources": [
+        {
+          "title": "How OpenID Connect Works",
+          "url": "https://openid.net/developers/how-connect-works/"
+        }
+      ]
+    },
+    {
+      "term": "SPEEDE",
+      "definition": "A server for secure electronic exchange of student records (EDI), operated by the National Student Clearinghouse.",
+      "sources": [
+        {
+          "title": "EDI — PESC",
+          "url": "https://pesc.org/edi"
+        }
+      ]
+    },
+    {
+      "term": "Standards-Based Curriculum (SBC)",
+      "definition": "Curriculum built around predetermined state/national learning standards, with assessments aligned to those standards. Note: “SBC” is not a single standardized acronym in education.",
+      "sources": [
+        {
+          "title": "Standards-Based — Glossary of Education Reform",
+          "url": "https://www.edglossary.org/standards-based/"
+        }
+      ]
+    },
+    {
+      "term": "Standards-Based Grading",
+      "definition": "A grading approach that reports a student's mastery of specific learning standards rather than averaging unrelated points into one score.",
+      "sources": [
+        {
+          "title": "Standards-Based — Glossary of Education Reform",
+          "url": "https://www.edglossary.org/standards-based/"
+        }
+      ]
+    },
+    {
+      "term": "Survey component",
+      "definition": "One IPEDS data collection (e.g., Completions, Finance, Fall Enrollment); there are 13 across three periods.",
+      "sources": [
+        {
+          "title": "IPEDS Survey Components — NCES",
+          "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components"
+        }
+      ]
+    },
+    {
+      "term": "Term rollover",
+      "definition": "The SIS process of setting up a new term by copying the prior like-term's schedule of classes forward as a template; instructor assignments, notes, and cancelled sections typically do not carry over.",
+      "sources": [
+        {
+          "title": "Term Roll — UW–Madison Registrar",
+          "url": "https://kb.wisc.edu/registrar/146781"
+        }
+      ]
+    },
+    {
+      "term": "Title IV",
+      "definition": "US federal student-aid programs (e.g., Pell, federal loans); CBE programs need approval to be Title IV-eligible.",
+      "sources": [
+        {
+          "title": "34 CFR § 668.10",
+          "url": "https://www.ecfr.gov/current/title-34/section-668.10"
+        }
+      ]
+    },
+    {
+      "term": "What-If audit",
+      "definition": "A non-destructive simulation applying a hypothetical major/minor to existing courses.",
+      "sources": [
+        {
+          "title": "UNH DegreeWorks",
+          "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools"
+        }
+      ]
+    },
+    {
+      "term": "xAPI",
+      "definition": "Experience API by ADL — an open, extensible JSON statement format for learning records; an alternative to Caliper.",
+      "sources": [
+        {
+          "title": "xAPI/Caliper Comparison",
+          "url": "https://www.imsglobal.org/initial-xapicaliper-comparison"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "date": "2026-06-06",
+  "title": "SAML vs OIDC: how an SIS does single sign-on",
+  "domain": "Identity & Access",
+  "difficulty": "core",
+  "estimatedMinutes": 11,
+  "xp": 110,
+  "summary": "Universities don't want another password. Your SIS must federate to a campus identity provider via SAML or OpenID Connect. Today: what each protocol is, the roles involved, and the classic SP-initiated SSO flow you'll integrate against.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "Two protocols, one goal",
+      "markdown": "**SSO** lets a user authenticate once at an **Identity Provider (IdP)** and access many apps. Two standards dominate:\n\n- **SAML 2.0** — an **XML-based** standard for exchanging authentication & authorization data between an **IdP** and a **Service Provider (SP)** using signed **assertions**. It became an **OASIS** standard in **March 2005**.\n- **OpenID Connect (OIDC)** — a modern authentication protocol built **on top of OAuth 2.0** (RFC 6749/6750), published by the **OpenID Foundation**. The app is the **Relying Party (RP)**; the IdP is the **OpenID Provider (OP)**.\n\nRule of thumb: legacy campus IdPs often speak **SAML**; newer apps and mobile prefer **OIDC**.",
+      "sources": [
+        { "title": "SAML — Wikipedia", "url": "https://en.wikipedia.org/wiki/SAML" },
+        { "title": "How OpenID Connect Works — OpenID Foundation", "url": "https://openid.net/developers/how-connect-works/" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "oidc-on-oauth",
+      "question": "OpenID Connect is built on top of which framework?",
+      "options": ["OAuth 2.0", "SAML 2.0", "LDAP", "Kerberos"],
+      "answerIndex": 0,
+      "explanation": "OIDC is an authentication layer on top of the OAuth 2.0 authorization framework (RFC 6749/6750), adding identity via an ID token.",
+      "sources": [{ "title": "How OpenID Connect Works — OpenID Foundation", "url": "https://openid.net/developers/how-connect-works/" }]
+    },
+    {
+      "type": "mcq",
+      "id": "saml-idp-role",
+      "question": "In a SAML SSO flow, which party authenticates the user and issues the assertion?",
+      "options": ["The Identity Provider (IdP)", "The Service Provider (SP)", "The browser", "The principal (user)"],
+      "answerIndex": 0,
+      "explanation": "SAML defines three roles: the principal (user), the IdP (authenticates and issues assertions), and the SP (consumes the assertion to grant access).",
+      "sources": [{ "title": "SAML — Wikipedia", "url": "https://en.wikipedia.org/wiki/SAML" }]
+    },
+    {
+      "type": "mcq",
+      "id": "oidc-id-token",
+      "question": "What does an OpenID Provider return to assert the user's identity?",
+      "options": ["An ID token (a JWT)", "A SAML assertion (XML)", "A Kerberos ticket", "A plain API key"],
+      "answerIndex": 0,
+      "explanation": "OIDC returns an ID token (a signed JWT) — usually alongside an access token — and exposes user claims at the UserInfo endpoint. SAML's equivalent is the XML assertion.",
+      "sources": [{ "title": "How OpenID Connect Works — OpenID Foundation", "url": "https://openid.net/developers/how-connect-works/" }]
+    },
+    {
+      "type": "diagram",
+      "title": "SAML 2.0 SP-initiated SSO",
+      "mermaid": "flowchart TD\n  A[User requests SP resource] --> B[SP redirects to IdP SSO service]\n  B --> C[IdP authenticates the user]\n  C --> D[IdP issues a signed SAML assertion]\n  D --> E[Browser POSTs assertion to SP]\n  E --> F[SP validates and grants access]",
+      "steps": [
+        { "node": "A", "title": "Request the resource", "caption": "The user hits a protected page at the Service Provider (your SIS)." },
+        { "node": "B", "title": "Redirect to IdP", "caption": "The SP redirects the browser to the campus IdP with an AuthnRequest." },
+        { "node": "C", "title": "IdP authenticates", "caption": "The user signs in at the IdP (the SP never sees the password)." },
+        { "node": "D", "title": "Signed assertion", "caption": "The IdP issues a digitally signed SAML assertion about the user." },
+        { "node": "E", "title": "POST to SP", "caption": "The browser POSTs the assertion back to the SP's assertion consumer service." },
+        { "node": "F", "title": "Access granted", "caption": "The SP validates the signature and establishes a session." }
+      ],
+      "caption": "OIDC's Authorization Code flow is the analogous modern dance: redirect → authenticate → code → ID token.",
+      "sources": [{ "title": "SAML — Wikipedia (SSO use)", "url": "https://en.wikipedia.org/wiki/SAML" }]
+    },
+    {
+      "type": "flashcard",
+      "front": "SAML **assertion** vs OIDC **ID token** — both prove identity, but how do they differ?",
+      "back": "A **SAML assertion** is a signed **XML** document carrying authentication/attribute/authorization statements. An **OIDC ID token** is a signed **JWT** (compact JSON). Same purpose, different serialization and ecosystem."
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**SAML 2.0** (OASIS, 2005): XML assertions between **IdP** and **SP**.",
+        "**OIDC**: identity on top of **OAuth 2.0** (OpenID Foundation), using **ID tokens (JWTs)**.",
+        "**SP-initiated SSO**: request → redirect to IdP → authenticate → signed token → SP grants access.",
+        "An enterprise SIS usually must support **both** to onboard universities with mixed IdPs."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "IdP (Identity Provider)", "definition": "The party that authenticates the user and issues assertions/tokens (e.g., a campus SSO).", "sources": [{ "title": "SAML — Wikipedia", "url": "https://en.wikipedia.org/wiki/SAML" }] },
+    { "term": "SP / RP", "definition": "Service Provider (SAML) / Relying Party (OIDC) — the application that relies on the IdP to authenticate users.", "sources": [{ "title": "How OpenID Connect Works", "url": "https://openid.net/developers/how-connect-works/" }] },
+    { "term": "SAML assertion", "definition": "A signed XML packet of security statements (authentication, attribute, authorization decision) about a subject.", "sources": [{ "title": "SAML — Wikipedia", "url": "https://en.wikipedia.org/wiki/SAML" }] },
+    { "term": "ID token", "definition": "A signed JWT issued by an OpenID Provider asserting the end-user's identity in OIDC.", "sources": [{ "title": "How OpenID Connect Works", "url": "https://openid.net/developers/how-connect-works/" }] }
+  ],
+  "reflection": "Universities arrive with mixed IdPs. Would you front ManageArk with SAML, OIDC, or both — and how does federated identity map onto OpenFGA so a user's campus identity resolves to tenant-scoped permissions?"
+}

@@ -1,0 +1,99 @@
+{
+  "date": "2026-06-13",
+  "title": "Competency-Based Education: learning without seat time",
+  "domain": "Academic Models",
+  "difficulty": "core",
+  "estimatedMinutes": 11,
+  "xp": 115,
+  "summary": "What if a degree measured what you can do, not how long you sat? Competency-Based Education (CBE) does exactly that — and it bends the credit-hour assumptions your SIS is built on. Today: the federal 'direct assessment' rules, the Title IV hurdles, and a mastery-progression flow.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "Direct assessment vs the credit hour",
+      "markdown": "**Competency-Based Education (CBE)** measures learning by **demonstrated mastery** rather than time. In US regulation, a **direct-assessment program** measures student learning through **direct assessment of knowledge, skills, and abilities** — evidence of proficiency — **in lieu of credit or clock hours** (34 CFR § 668.10(a)).\n\nBut money still flows on credit hours, so the rules add guardrails:\n- The institution must establish a **methodology to reasonably equate each module to credit or clock hours**, consistent with its accreditor/state.\n- For **Title IV** eligibility, the **accreditor must evaluate and approve** that equivalence, and the institution must **apply to the Secretary** to have the program deemed eligible.",
+      "sources": [
+        { "title": "34 CFR § 668.10 (direct assessment) — eCFR", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "cbe-direct",
+      "question": "In a direct-assessment CBE program, learning is measured by…",
+      "options": [
+        "direct assessment of demonstrated knowledge/skills, in lieu of credit/clock hours",
+        "seat time only",
+        "attendance counts",
+        "how much tuition was paid"
+      ],
+      "answerIndex": 0,
+      "explanation": "A direct-assessment program measures learning by directly assessing knowledge, skills, and abilities — substituting demonstrated proficiency for credit or clock hours.",
+      "sources": [{ "title": "34 CFR § 668.10(a) — eCFR", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }]
+    },
+    {
+      "type": "mcq",
+      "id": "cbe-titleiv",
+      "question": "For Title IV eligibility, a direct-assessment program must…",
+      "options": [
+        "be evaluated/approved by the accreditor and applied to the Secretary for eligibility",
+        "skip accreditation entirely",
+        "be offered for free",
+        "ignore any credit-hour equivalence"
+      ],
+      "answerIndex": 0,
+      "explanation": "The accrediting agency must evaluate the program and approve the institution's claimed credit/clock-hour equivalence, and the institution must apply to the Secretary to have it determined an eligible Title IV program.",
+      "sources": [{ "title": "34 CFR § 668.10(a)(5),(b)(1) — eCFR", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }]
+    },
+    {
+      "type": "mcq",
+      "id": "cbe-equate",
+      "question": "What must an institution establish for each CBE module?",
+      "options": [
+        "a methodology to reasonably equate it to credit or clock hours",
+        "a fixed 15-week term",
+        "a daily seat-time log",
+        "a minimum SAT score"
+      ],
+      "answerIndex": 0,
+      "explanation": "Because aid and recognition still run on credit/clock hours, the institution must reasonably equate each module to those units, consistent with its accreditor or state agency.",
+      "sources": [{ "title": "34 CFR § 668.10(a)(3) — eCFR", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }]
+    },
+    {
+      "type": "diagram",
+      "title": "A CBE mastery progression",
+      "mermaid": "flowchart TD\n  A[Define competencies] --> B[Assess current proficiency]\n  B --> C[Learn and practice]\n  C --> D[Demonstrate mastery]\n  D --> E[Pass: advance to next]\n  E --> F[Equate modules to credits]",
+      "steps": [
+        { "node": "A", "title": "Define competencies", "caption": "Spell out the demonstrable skills/knowledge for the program." },
+        { "node": "B", "title": "Assess proficiency", "caption": "Determine where the learner already stands." },
+        { "node": "C", "title": "Learn & practice", "caption": "The learner works toward mastery at their own pace." },
+        { "node": "D", "title": "Demonstrate mastery", "caption": "A direct assessment evidences proficiency." },
+        { "node": "E", "title": "Advance", "caption": "Pass → move to the next competency." },
+        { "node": "F", "title": "Equate to credits", "caption": "Map modules to credit/clock hours for aid and records." }
+      ],
+      "caption": "Progress is gated by mastery, not the calendar — which is exactly why CBE stresses a credit-hour-shaped SIS.",
+      "sources": [{ "title": "34 CFR § 668.10(a) — eCFR", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }]
+    },
+    {
+      "type": "news",
+      "headline": "CBE programs and enrollment keep growing",
+      "summary": "A **June 2026** report from the American Institutes for Research (AIR), *Implementing Postsecondary Competency-Based Education*, found CBE program leaders reporting **steady growth in CBE programs and enrollment**, with several institutions expanding to multiple programs and thousands of learners.",
+      "date": "2026-06",
+      "source": { "title": "Implementing Postsecondary Competency-Based Education — AIR (June 2026)", "url": "https://www.air.org/sites/default/files/2026-06/AIR-CBE-Implementation-Report-June-2026.pdf" }
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**CBE / direct assessment** measures **mastery**, not seat time (34 CFR § 668.10).",
+        "Institutions must **equate modules to credit/clock hours** for aid and recognition.",
+        "**Title IV** eligibility needs **accreditor approval** + application to the Secretary.",
+        "Modeling **progress-by-mastery alongside credit hours** is a real SIS design challenge — and a differentiator."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "Competency-Based Education (CBE)", "definition": "An education model where progress is based on demonstrated mastery of competencies rather than time/seat hours.", "sources": [{ "title": "34 CFR § 668.10", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }] },
+    { "term": "Direct assessment", "definition": "Measuring learning by directly assessing knowledge/skills/abilities in lieu of credit or clock hours (34 CFR § 668.10).", "sources": [{ "title": "34 CFR § 668.10", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }] },
+    { "term": "Seat time", "definition": "Credit earned based on time enrolled/instructional hours — the assumption CBE departs from.", "sources": [{ "title": "34 CFR § 668.10", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }] },
+    { "term": "Title IV", "definition": "US federal student-aid programs (e.g., Pell, federal loans); CBE programs need approval to be Title IV-eligible.", "sources": [{ "title": "34 CFR § 668.10", "url": "https://www.ecfr.gov/current/title-34/section-668.10" }] }
+  ],
+  "reflection": "CBE breaks the seat-time assumption. How would ManageArk model 'progress by mastery' alongside traditional credit hours in the same gradebook and transcript — without forking the data model?"
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arkbase — Education Standards Academy</title>
+  <meta name="description" content="A daily, gamified knowledge-transfer system for education-industry standards and SIS domain knowledge." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📘</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- CDN libraries (loaded over HTTPS on Render; for local preview run a static server, see README) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/today">
+      <span class="brand-mark">📘</span>
+      <span class="brand-name">Arkbase</span>
+    </a>
+
+    <div class="hud">
+      <div class="hud-item streak" title="Daily streak">
+        <span class="streak-flame" id="hud-flame">🔥</span>
+        <span id="hud-streak">0</span>
+      </div>
+      <div class="hud-item level" title="Your level">
+        <div class="level-text">
+          <span id="hud-level-title">Curious Newcomer</span>
+          <span class="level-sub"><span id="hud-xp">0</span> XP · Lv <span id="hud-level">1</span></span>
+        </div>
+        <div class="xp-bar"><div class="xp-fill" id="hud-xp-fill"></div></div>
+      </div>
+    </div>
+
+    <nav class="mainnav" id="mainnav">
+      <a href="#/today" data-route="today">Today</a>
+      <a href="#/archive" data-route="archive">Archive<span class="navbadge" id="archive-badge" hidden></span></a>
+      <a href="#/review" data-route="review">Review</a>
+      <a href="#/progress" data-route="progress">Progress</a>
+      <a href="#/glossary" data-route="glossary">Glossary</a>
+      <a href="#/settings" data-route="settings">Settings</a>
+    </nav>
+    <button class="navtoggle" id="navtoggle" aria-label="Menu">☰</button>
+  </header>
+
+  <main id="view" class="view"><!-- rendered by app.js --></main>
+
+  <footer class="footer">
+    <span>Arkbase — facts only, sourced daily.</span>
+    <span id="footer-generated"></span>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- App scripts (classic, no build step) -->
+  <script src="js/state.js" defer></script>
+  <script src="js/content.js" defer></script>
+  <script src="js/render.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

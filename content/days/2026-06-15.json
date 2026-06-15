@@ -1,0 +1,133 @@
+{
+  "date": "2026-06-15",
+  "title": "“SBC”, decoded — and how a term handover actually works",
+  "domain": "Registrar Operations",
+  "difficulty": "intro",
+  "estimatedMinutes": 10,
+  "xp": 100,
+  "summary": "Two things every SIS builder hears and half-understands: the acronym “SBC”, and the term “handover” / rollover at the end of a semester. Today we pin down what SBC honestly means in an education context, then walk the real mechanics of rolling one term into the next.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "First, an honest answer about “SBC”",
+      "markdown": "Here's the truth a good engineer should internalize: **“SBC” is not a single standardized acronym in education.** Authoritative sources don't define one canonical meaning, so beware of anyone who states it as fact.\n\nIn an SIS / curriculum context, the most relevant expansion is **Standards-Based Curriculum** (closely tied to **Standards-Based Grading**): teaching and assessment built around predetermined state/national **learning standards**, with aligned assessments.\n\n⚠️ Watch out: the same three letters appear elsewhere with unrelated meanings (e.g., a screen literally named *SBC* in some Colleague SIS registrar workflows). When a term is ambiguous, **say so and cite** — don't guess. That habit is exactly what keeps a knowledge base free of false positives.",
+      "sources": [
+        { "title": "Standards-Based — The Glossary of Education Reform", "url": "https://www.edglossary.org/standards-based/", "date": "2014-01-30" },
+        { "title": "Standards-Based Curriculum Development & Implementation — Study.com", "url": "https://study.com/academy/lesson/standards-based-curriculum-development-implementation.html" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "sbc-meaning",
+      "question": "In an education/SIS context, “SBC” most plausibly maps to which idea — keeping in mind it isn't a single standardized acronym?",
+      "options": [
+        "Standards-Based Curriculum / Standards-Based Grading",
+        "Student Bank Card",
+        "Server-Based Computing",
+        "School Bus Coordinator"
+      ],
+      "answerIndex": 0,
+      "explanation": "There's no authoritative single definition of “SBC” in education, but the most relevant mapping for an SIS/curriculum context is Standards-Based Curriculum (and the related Standards-Based Grading). The honest move is to flag the ambiguity rather than assert one expansion as fact.",
+      "sources": [
+        { "title": "Standards-Based — The Glossary of Education Reform", "url": "https://www.edglossary.org/standards-based/" }
+      ]
+    },
+    {
+      "type": "concept",
+      "title": "Standards-based, briefly",
+      "markdown": "**Standards-based** approaches anchor curriculum and grading to **explicit learning standards** rather than to seat time or point accumulation.\n\n- **Standards-Based Curriculum:** what's taught is mapped to predetermined standards, with assessments aligned to those standards.\n- **Standards-Based Grading:** a grade reports a student's **mastery of specific standards**, instead of averaging miscellaneous points (homework, extra credit, behavior) into one number.\n\nFor an SIS, this matters because the **gradebook data model** must be able to attach results to *standards*, not just to assignments — which is also exactly why OneRoster 1.2 added richer score scales.",
+      "sources": [
+        { "title": "Standards-Based — The Glossary of Education Reform", "url": "https://www.edglossary.org/standards-based/" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "sbg-measures",
+      "question": "Standards-Based Grading primarily measures…",
+      "options": [
+        "a student's mastery of specific learning standards",
+        "how many points were accumulated, regardless of topic",
+        "attendance only",
+        "the teacher's years of experience"
+      ],
+      "answerIndex": 0,
+      "explanation": "Standards-based grading reports mastery of specific learning standards, rather than blending unrelated points into a single average.",
+      "sources": [{ "title": "Standards-Based — The Glossary of Education Reform", "url": "https://www.edglossary.org/standards-based/" }]
+    },
+    {
+      "type": "concept",
+      "title": "Term handover = “term rollover”",
+      "markdown": "When one term ends and the next begins, an SIS performs a **term rollover** (a.k.a. term roll / term setup). The core mechanic:\n\n1. The registrar **creates the new term** and academic calendar dates.\n2. The system **copies the prior *like-term*'s schedule of classes forward** as a template — fall→fall, spring→spring — because annual offerings repeat.\n3. **Not everything copies.** Things like **instructor assignments, class notes, and canceled sections** are typically dropped and must be re-entered.\n4. Departments **edit sections** until a **schedule-restriction date**, after which only limited fields (instructor, waitlist, etc.) stay editable.\n5. The schedule is **published**, **registration windows open**, and the **academic calendar** governs term dates.",
+      "sources": [
+        { "title": "Term Roll — UW–Madison Registrar", "url": "https://kb.wisc.edu/registrar/146781" },
+        { "title": "Class Scheduling Workflow — Penn State Registrar", "url": "https://registrar.psu.edu/faculty-staff/scheduling/class-scheduling/workflow.cfm" },
+        { "title": "Banner Scheduling Guide — MSU Denver", "url": "https://www.msudenver.edu/wp-content/uploads/2022/05/Banner-Scheduling-Guide-1.pdf", "date": "2022-05" }
+      ]
+    },
+    {
+      "type": "diagram",
+      "title": "The term rollover flow",
+      "mermaid": "flowchart TD\n  A[Prior like-term schedule] -->|roll forward as template| B[New term: draft sections]\n  R[Registrar creates new term + calendar] --> B\n  B --> C{Department edits\\nbefore restriction date}\n  C -->|drop: instructors, notes, cancelled sections| C\n  C --> D[Schedule published]\n  D --> E[Registration windows open]\n  E --> F[Term active]",
+      "steps": [
+        { "node": "A", "title": "Prior like-term schedule", "caption": "Start from last fall's schedule as the template." },
+        { "node": "R", "title": "Registrar creates the new term", "caption": "Set up the new term and academic-calendar dates." },
+        { "node": "B", "title": "Draft sections", "caption": "The like-term schedule rolls forward into draft sections." },
+        { "node": "C", "title": "Departments edit", "caption": "Edits allowed until the schedule-restriction date; instructors, notes, and cancelled sections are dropped." },
+        { "node": "D", "title": "Schedule published", "caption": "The finalized schedule of classes goes live." },
+        { "node": "E", "title": "Registration opens", "caption": "Registration windows open for students." },
+        { "node": "F", "title": "Term active", "caption": "The new term is underway." }
+      ],
+      "caption": "Roll the like term forward, edit before the restriction date, publish, open registration. The like-term mapping (fall→fall) preserves seasonal course patterns.",
+      "sources": [
+        { "title": "Term Roll — UW–Madison Registrar", "url": "https://kb.wisc.edu/registrar/146781" },
+        { "title": "Class Scheduling Workflow — Penn State Registrar", "url": "https://registrar.psu.edu/faculty-staff/scheduling/class-scheduling/workflow.cfm" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "rollover-not-copied",
+      "question": "During a term rollover, which of these does NOT typically carry forward automatically?",
+      "options": [
+        "Instructor assignments and cancelled sections",
+        "The general schedule-of-classes template",
+        "The standard meeting patterns",
+        "The like-term mapping (fall → fall)"
+      ],
+      "answerIndex": 0,
+      "explanation": "The like-term schedule rolls forward as a template, but instructor assignments, class notes, and cancelled sections are usually dropped and must be re-entered for the new term.",
+      "sources": [
+        { "title": "Term Roll — UW–Madison Registrar", "url": "https://kb.wisc.edu/registrar/146781" },
+        { "title": "Banner Scheduling Guide — MSU Denver", "url": "https://www.msudenver.edu/wp-content/uploads/2022/05/Banner-Scheduling-Guide-1.pdf" }
+      ]
+    },
+    {
+      "type": "flashcard",
+      "front": "Why roll a **like term** (fall→fall) instead of the immediately preceding term?",
+      "back": "Because academic offerings repeat **annually**: last fall's schedule is the best template for next fall. Rolling the previous *like* term preserves seasonal course patterns better than copying, say, spring into fall."
+    },
+    {
+      "type": "news",
+      "headline": "Terms are interoperable too: the new Ed-Fi OneRoster Service",
+      "summary": "Term/semester data isn't just internal — standards model it explicitly. OneRoster represents terms as **`academicSessions`**. In the **Spring 2026** release (May 11, 2026), the new **Ed-Fi OneRoster Service** can serve OneRoster v1.2 endpoints — including academic sessions — directly from Ed-Fi data, so the term structure you build during rollover can flow to partner systems in a standard shape.",
+      "date": "2026-05-11",
+      "source": { "title": "Ed-Fi Spring 2026 Releases", "url": "https://docs.ed-fi.org/blog/2026/05/11/" }
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**“SBC” has no single canonical meaning** — most relevant SIS mapping is **Standards-Based Curriculum/Grading**; flag ambiguity instead of guessing.",
+        "**Standards-based grading** ties grades to **mastery of standards**, which shapes how a gradebook data model must store results.",
+        "**Term rollover** copies the prior *like-term* schedule forward; **instructors, notes, and cancelled sections don't carry over**.",
+        "Registration opens only after departments edit and the schedule is published — a natural place for **approval gates** in an SIS workflow."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "Standards-Based Curriculum (SBC)", "definition": "Curriculum built around predetermined state/national learning standards, with assessments aligned to those standards. Note: “SBC” is not a single standardized acronym in education.", "sources": [{ "title": "Standards-Based — Glossary of Education Reform", "url": "https://www.edglossary.org/standards-based/" }] },
+    { "term": "Standards-Based Grading", "definition": "A grading approach that reports a student's mastery of specific learning standards rather than averaging unrelated points into one score.", "sources": [{ "title": "Standards-Based — Glossary of Education Reform", "url": "https://www.edglossary.org/standards-based/" }] },
+    { "term": "Term rollover", "definition": "The SIS process of setting up a new term by copying the prior like-term's schedule of classes forward as a template; instructor assignments, notes, and cancelled sections typically do not carry over.", "sources": [{ "title": "Term Roll — UW–Madison Registrar", "url": "https://kb.wisc.edu/registrar/146781" }] },
+    { "term": "Academic session", "definition": "A term, semester, or grading period. OneRoster models these explicitly as `academicSessions`.", "sources": [{ "title": "OneRoster v1.2", "url": "https://www.imsglobal.org/spec/oneroster/v1p2" }] },
+    { "term": "Schedule of classes", "definition": "The set of course sections offered in a term. The prior like-term's schedule is the template used during term rollover.", "sources": [{ "title": "Class Scheduling Workflow — Penn State Registrar", "url": "https://registrar.psu.edu/faculty-staff/scheduling/class-scheduling/workflow.cfm" }] }
+  ],
+  "reflection": "ManageArk is schema-per-tenant with UUID v7 IDs. Sketch a “term rollover” as a background job: what copies, what resets, and what must a registrar explicitly approve before registration opens?"
+}

@@ -1,0 +1,17 @@
+# Render Blueprint (Infrastructure as Code) for Arkbase.
+# Arkbase is a zero-build static site, so there is nothing to compile — Render just serves the files.
+# You can also skip this file and configure the same thing in the Render dashboard:
+#   New + → Static Site → connect repo → Build Command: (leave empty) → Publish Directory: .
+services:
+  - type: web
+    name: arkbase
+    runtime: static
+    buildCommand: "echo 'no build step — static site'"
+    staticPublishPath: .
+    autoDeploy: true
+    # Hash-based routing (#/today, #/archive…) means every HTTP request maps to a real file,
+    # so NO catch-all rewrite to index.html is needed (that would break /content/*.json).
+    headers:
+      - path: /content/*
+        name: Cache-Control
+        value: "no-cache"

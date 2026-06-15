@@ -1,0 +1,146 @@
+{
+  "date": "2026-06-14",
+  "title": "OneRoster & Ed-Fi: the rails your SIS rides on",
+  "domain": "Interoperability Standards",
+  "difficulty": "core",
+  "estimatedMinutes": 12,
+  "xp": 120,
+  "summary": "A Student Information System is never an island — it exchanges rosters, grades, and reporting data with LMSs, assessment tools, and government agencies. Today: the two standards that make that exchange possible, OneRoster and Ed-Fi, plus the common vocabulary underneath, CEDS.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "Why an SIS needs interoperability standards",
+      "markdown": "Your SIS is the **system of record** for students, enrollment, courses, and grades. But the data has to flow outward:\n\n- to the **LMS** (Canvas, Moodle) so the right students show up in the right course;\n- to **assessment** and analytics tools;\n- to **state/agency reporting** systems.\n\nDoing this with a custom integration per partner doesn't scale. Standards define a shared shape for the data so any compliant system can talk to any other. Three names dominate U.S. education:\n\n- **OneRoster** (1EdTech) — exchanging roster info, course materials, and grades.\n- **Ed-Fi** — a common data model + API connecting SIS, assessment, rostering, and LMS.\n- **CEDS** — a national common *vocabulary* for education data elements.",
+      "sources": [
+        { "title": "OneRoster — 1EdTech", "url": "https://www.1edtech.org/standards/oneroster" },
+        { "title": "What is the Ed-Fi Alliance", "url": "https://www.ed-fi.org/what-is-ed-fi/" },
+        { "title": "CEDS — Common Education Data Standards", "url": "https://ceds.ed.gov/" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "oneroster-purpose",
+      "question": "What does OneRoster primarily exchange between school systems?",
+      "options": [
+        "Roster information, course materials, and grades (e.g., SIS ↔ LMS)",
+        "Network firewall and routing rules",
+        "Student loan disbursement schedules",
+        "Classroom furniture inventory"
+      ],
+      "answerIndex": 0,
+      "explanation": "OneRoster securely exchanges roster info, course materials, and grades between systems such as an SIS and an LMS. It supports both CSV bulk exchange and a real-time REST web-services mode.",
+      "sources": [{ "title": "OneRoster — 1EdTech", "url": "https://www.1edtech.org/standards/oneroster" }]
+    },
+    {
+      "type": "concept",
+      "title": "OneRoster 1.2 vs 1.1 — what changed",
+      "markdown": "OneRoster **1.2** is the current version, and it restructured the spec into **three independently-implementable services**:\n\n- **Rostering** — who's in what class/org;\n- **Gradebook** — line items and results;\n- **Resource** — course materials.\n\nOther 1.2 additions: **Score Scales** (non-numeric / scaled grades), letting a user hold **multiple roles** across organizations, **preferred names/pronouns**, and alignment to the **1EdTech Security Framework** for protecting PII. The base URL also moved from `/ims/oneroster/v1p1` to per-service `/ims/oneroster/{rostering|gradebook|resources}/v1p2`.",
+      "sources": [
+        { "title": "OneRoster v1.2 specification — 1EdTech/IMS", "url": "https://www.imsglobal.org/spec/oneroster/v1p2" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "oneroster-services",
+      "question": "OneRoster 1.2 reorganized the spec into three independent services. Which set?",
+      "options": [
+        "Rostering, Gradebook, and Resource",
+        "Login, Logout, and Audit",
+        "Admissions, Finance, and HR",
+        "Email, Calendar, and Chat"
+      ],
+      "answerIndex": 0,
+      "explanation": "1.2 split the standard into Rostering, Gradebook, and Resource services — each with its own REST and CSV patterns, so a vendor can implement just the parts it needs.",
+      "sources": [{ "title": "OneRoster v1.2 specification", "url": "https://www.imsglobal.org/spec/oneroster/v1p2" }]
+    },
+    {
+      "type": "diagram",
+      "title": "How the data flows",
+      "mermaid": "flowchart LR\n  SIS[(SIS — system of record)]\n  SIS -->|OneRoster Rostering| LMS[LMS / Canvas / Moodle]\n  LMS -->|OneRoster Gradebook results| SIS\n  SIS -->|Ed-Fi ODS/API| ODS[(Ed-Fi ODS)]\n  ODS -->|reporting| STATE[State / Agency reporting]\n  CEDS[[CEDS shared vocabulary]] -. defines elements .- SIS\n  CEDS -. defines elements .- ODS",
+      "steps": [
+        { "node": "SIS", "title": "SIS is the source of truth", "caption": "Students, enrollment, courses, and grades live in the SIS." },
+        { "node": "LMS", "title": "Push rosters via OneRoster", "caption": "OneRoster Rostering provisions classes into the LMS; grades flow back." },
+        { "node": "ODS", "title": "Feed the Ed-Fi ODS/API", "caption": "The SIS also writes to the Ed-Fi Operational Data Store via its API." },
+        { "node": "STATE", "title": "State / agency reporting", "caption": "Reporting systems consume the Ed-Fi ODS." },
+        { "node": "CEDS", "title": "CEDS vocabulary underneath", "caption": "Shared CEDS definitions keep every system's data comparable." }
+      ],
+      "caption": "The SIS stays the source of truth; OneRoster moves rosters/grades to and from the LMS, while Ed-Fi's ODS/API feeds reporting. CEDS supplies the shared vocabulary.",
+      "sources": [
+        { "title": "OneRoster — 1EdTech", "url": "https://www.1edtech.org/standards/oneroster" },
+        { "title": "What is the Ed-Fi Alliance", "url": "https://www.ed-fi.org/what-is-ed-fi/" }
+      ]
+    },
+    {
+      "type": "concept",
+      "title": "Ed-Fi: a common data language",
+      "markdown": "**Ed-Fi** is an **open-source Data Standard + Unifying Data Model**, plus a technology suite (the **ODS/API** — Operational Data Store and REST API) that connects SIS, assessment, rostering, and LMS systems via one common data language.\n\n- **Governance/funding:** a nonprofit initiative of the **Michael & Susan Dell Foundation**; the standard and API code are free under a license agreement.\n- **Recent versions:** **Data Standard v6.0** shipped in late 2025 (supporting school years 2026‑27 / 2027‑28); the **Spring 2026** release added **Data Standard v6.1**, **ODS/API v7.3.2**, and a new **Ed-Fi OneRoster Service**.",
+      "sources": [
+        { "title": "What is the Ed-Fi Alliance", "url": "https://www.ed-fi.org/what-is-ed-fi/" },
+        { "title": "Ed-Fi Spring 2026 Releases", "url": "https://docs.ed-fi.org/blog/2026/05/11/", "date": "2026-05-11" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "edfi-foundation",
+      "question": "Ed-Fi is a nonprofit initiative backed by which foundation?",
+      "options": [
+        "Michael & Susan Dell Foundation",
+        "Bill & Melinda Gates Foundation",
+        "Mozilla Foundation",
+        "The Linux Foundation"
+      ],
+      "answerIndex": 0,
+      "explanation": "Ed-Fi is a nonprofit initiative of the Michael & Susan Dell Foundation; its data standard and API code are made available for free under a license agreement.",
+      "sources": [
+        { "title": "What is the Ed-Fi Alliance", "url": "https://www.ed-fi.org/what-is-ed-fi/" },
+        { "title": "Ed-Fi overview — Edlink", "url": "https://ed.link/community/edfi/", "date": "2020-04-06" }
+      ]
+    },
+    {
+      "type": "chart",
+      "title": "Ed-Fi adoption (historical, U.S. states/agencies)",
+      "chart": {
+        "type": "bar",
+        "data": {
+          "labels": ["States, 2019 (EdScoop)", "State agencies, 2020 (Edlink)"],
+          "datasets": [{ "label": "U.S. states/agencies using Ed-Fi", "data": [30, 32], "backgroundColor": ["#6aa6ff", "#8b7bff"] }]
+        },
+        "options": { "plugins": { "legend": { "display": false } }, "scales": { "y": { "beginAtZero": true } } }
+      },
+      "caption": "Reported counts of U.S. states / state agencies using Ed-Fi. These are 2019 and 2020 figures — treat as historical, not current; no single official current state-count was found.",
+      "sources": [
+        { "title": "Why the Ed-Fi data standard is taking over — EdScoop", "url": "https://edscoop.com/why-the-ed-fi-data-standard-is-taking-over/", "date": "2019-04-09" },
+        { "title": "Ed-Fi overview — Edlink", "url": "https://ed.link/community/edfi/", "date": "2020-04-06" }
+      ]
+    },
+    {
+      "type": "flashcard",
+      "front": "What is **CEDS**, and who maintains it?",
+      "back": "**Common Education Data Standards** — a national common vocabulary / data dictionary of shared education data elements spanning Early Learning, K‑12, Postsecondary, and P‑20W. Maintained by **NCES** (National Center for Education Statistics), part of the U.S. Department of Education."
+    },
+    {
+      "type": "news",
+      "headline": "Ed-Fi and 1EdTech ship the Ed-Fi OneRoster Service",
+      "summary": "In its **Spring 2026** release (May 11, 2026), the Ed-Fi Alliance introduced the **Ed-Fi OneRoster Service**, which implements 1EdTech's **OneRoster v1.2 API natively on the Ed-Fi ODS/API**. Agencies can now serve a OneRoster-compliant endpoint directly from data they already hold in Ed-Fi — a concrete alignment between the two leading U.S. education data standards.",
+      "date": "2026-05-11",
+      "source": { "title": "Ed-Fi Spring 2026 Releases", "url": "https://docs.ed-fi.org/blog/2026/05/11/" }
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**OneRoster** (1EdTech) exchanges rosters, materials, and grades; **v1.2** splits into Rostering, Gradebook, and Resource services.",
+        "**Ed-Fi** is an open-source data standard + ODS/API, backed by the Michael & Susan Dell Foundation; latest is Data Standard v6.1 / ODS-API v7.3.2 (Spring 2026).",
+        "**CEDS** (NCES) provides the shared vocabulary both lean on.",
+        "The 2026 **Ed-Fi OneRoster Service** lets one system speak both standards — a pattern an enterprise SIS should plan for."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "OneRoster", "definition": "A 1EdTech standard for securely exchanging roster info, course materials, and grades between systems (e.g., SIS ↔ LMS), via CSV bulk or REST. v1.2 splits into Rostering, Gradebook, and Resource services.", "sources": [{ "title": "OneRoster — 1EdTech", "url": "https://www.1edtech.org/standards/oneroster" }] },
+    { "term": "Ed-Fi", "definition": "An open-source education Data Standard + Unifying Data Model plus the ODS/API technology suite, backed by the Michael & Susan Dell Foundation, used to connect SIS, assessment, rostering, and LMS data.", "sources": [{ "title": "What is the Ed-Fi Alliance", "url": "https://www.ed-fi.org/what-is-ed-fi/" }] },
+    { "term": "CEDS", "definition": "Common Education Data Standards — a national common vocabulary/data dictionary of shared education data elements, maintained by NCES (U.S. Dept of Education).", "sources": [{ "title": "CEDS Home", "url": "https://ceds.ed.gov/" }] },
+    { "term": "ODS/API", "definition": "Ed-Fi's Operational Data Store and its REST API — the technology suite that stores and moves data shaped by the Ed-Fi Data Standard.", "sources": [{ "title": "Ed-Fi Spring 2026 Releases", "url": "https://docs.ed-fi.org/blog/2026/05/11/" }] },
+    { "term": "Rostering", "definition": "Provisioning students, teachers, and classes into systems. OneRoster's Rostering service standardizes this exchange.", "sources": [{ "title": "OneRoster v1.2", "url": "https://www.imsglobal.org/spec/oneroster/v1p2" }] }
+  ],
+  "reflection": "Where in ManageArk would a OneRoster Gradebook endpoint or an Ed-Fi ODS/API surface make the platform more interoperable than Banner or Workday? Which would you build first, and why?"
+}

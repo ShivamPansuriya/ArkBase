@@ -1,0 +1,100 @@
+{
+  "date": "2026-06-10",
+  "title": "IPEDS: the federal reporting every US college must do",
+  "domain": "Compliance & Reporting",
+  "difficulty": "core",
+  "estimatedMinutes": 10,
+  "xp": 105,
+  "summary": "If a US institution takes federal student aid, it must report to IPEDS — every year, on a fixed calendar. Today: what IPEDS is, who runs it, the three collection periods, and how this shapes the reporting features an SIS must ship.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "What IPEDS is",
+      "markdown": "**IPEDS** (Integrated Postsecondary Education Data System) is a set of **interrelated annual surveys** run by the U.S. Department of Education's **NCES** (National Center for Education Statistics). It collects data from **every institution that participates in federal (Title IV) student-aid programs**.\n\nReporting is **mandatory** for Title IV participants (20 U.S.C. 1094 §487(a)(17); 34 CFR 668.14(b)(19)). The data spans **eight areas** — including **enrollment, completions, finances, and student financial aid** — submitted through **13 survey components across 3 reporting periods: Fall, Winter, and Spring**.",
+      "sources": [
+        { "title": "About IPEDS — NCES", "url": "https://nces.ed.gov/ipeds/about-ipeds" },
+        { "title": "IPEDS Survey Components — NCES", "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "ipeds-who",
+      "question": "Which institutions must complete IPEDS surveys?",
+      "options": [
+        "Those participating in Title IV federal student-aid programs (mandatory)",
+        "Only Ivy League schools",
+        "Only public universities",
+        "It is optional for everyone"
+      ],
+      "answerIndex": 0,
+      "explanation": "Completing IPEDS surveys is mandatory for any institution participating in (or applying for) a Title IV federal student-aid program.",
+      "sources": [{ "title": "About IPEDS — NCES", "url": "https://nces.ed.gov/ipeds/about-ipeds" }]
+    },
+    {
+      "type": "mcq",
+      "id": "ipeds-periods",
+      "question": "IPEDS data is collected across how many reporting periods each year?",
+      "options": [
+        "Three — Fall, Winter, and Spring",
+        "One annual deadline",
+        "Twelve monthly deadlines",
+        "Continuously in real time"
+      ],
+      "answerIndex": 0,
+      "explanation": "IPEDS uses 13 survey components grouped into three collection periods: Fall, Winter, and Spring.",
+      "sources": [{ "title": "IPEDS Survey Components — NCES", "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components" }]
+    },
+    {
+      "type": "mcq",
+      "id": "ipeds-who-runs",
+      "question": "Which agency operates IPEDS?",
+      "options": [
+        "NCES, within the U.S. Department of Education",
+        "The IRS",
+        "1EdTech",
+        "The Carnegie Foundation"
+      ],
+      "answerIndex": 0,
+      "explanation": "IPEDS is run by the National Center for Education Statistics (NCES), part of the U.S. Department of Education.",
+      "sources": [{ "title": "About IPEDS — NCES", "url": "https://nces.ed.gov/ipeds/about-ipeds" }]
+    },
+    {
+      "type": "diagram",
+      "title": "The IPEDS reporting cycle",
+      "mermaid": "flowchart TD\n  A[Institution keyholder registers] --> B[Fall collection]\n  B --> C[Winter collection]\n  C --> D[Spring collection]\n  D --> E[NCES edits and locks data]\n  E --> F[Public via IPEDS Data Center]",
+      "steps": [
+        { "node": "A", "title": "Register to report", "caption": "The institution's IPEDS contact prepares to submit." },
+        { "node": "B", "title": "Fall collection", "caption": "E.g., Institutional Characteristics and Completions." },
+        { "node": "C", "title": "Winter collection", "caption": "E.g., Admissions and Human Resources." },
+        { "node": "D", "title": "Spring collection", "caption": "E.g., Fall Enrollment and Finance." },
+        { "node": "E", "title": "Edit & lock", "caption": "NCES runs edits and locks submitted data." },
+        { "node": "F", "title": "Public release", "caption": "Data becomes available through the IPEDS Data Center." }
+      ],
+      "caption": "The Fall/Winter/Spring periods are defined by NCES; the register → submit → lock → release framing is the standard collection workflow.",
+      "sources": [{ "title": "IPEDS Survey Components — NCES", "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components" }]
+    },
+    {
+      "type": "news",
+      "headline": "IPEDS 2024-25 Spring provisional data released",
+      "summary": "NCES released **provisional data from the 2024-25 Spring collection on January 6, 2026**. Provisional releases let researchers and institutions work with the data before the final, fully-edited files are published.",
+      "date": "2026-01-06",
+      "source": { "title": "IPEDS Survey Components (Latest Data Releases) — NCES", "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components" }
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**IPEDS** = mandatory annual reporting for **Title IV** institutions, run by **NCES**.",
+        "**13 components across 3 periods**: Fall, Winter, Spring.",
+        "Covers **enrollment, completions, finance, financial aid**, and more.",
+        "An SIS must be able to **generate IPEDS submissions from tenant data** on that calendar."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "IPEDS", "definition": "Integrated Postsecondary Education Data System — NCES's mandatory annual surveys for Title IV institutions.", "sources": [{ "title": "About IPEDS — NCES", "url": "https://nces.ed.gov/ipeds/about-ipeds" }] },
+    { "term": "NCES", "definition": "National Center for Education Statistics, within the U.S. Department of Education; operates IPEDS.", "sources": [{ "title": "About IPEDS — NCES", "url": "https://nces.ed.gov/ipeds/about-ipeds" }] },
+    { "term": "Survey component", "definition": "One IPEDS data collection (e.g., Completions, Finance, Fall Enrollment); there are 13 across three periods.", "sources": [{ "title": "IPEDS Survey Components — NCES", "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components" }] },
+    { "term": "Reporting period", "definition": "One of the three IPEDS collection windows: Fall, Winter, or Spring.", "sources": [{ "title": "IPEDS Survey Components — NCES", "url": "https://nces.ed.gov/ipeds/use-the-data/survey-components" }] }
+  ],
+  "reflection": "Which ManageArk modules feed IPEDS (enrollment, completions, finance, aid)? How would you generate validated IPEDS submissions from schema-per-tenant data on the Fall/Winter/Spring cadence?"
+}

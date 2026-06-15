@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-06-15T06:33:55.211Z",
+  "days": [
+    {
+      "date": "2026-06-15",
+      "title": "“SBC”, decoded — and how a term handover actually works",
+      "domain": "Registrar Operations",
+      "difficulty": "intro",
+      "xp": 100,
+      "estimatedMinutes": 10
+    },
+    {
+      "date": "2026-06-14",
+      "title": "OneRoster & Ed-Fi: the rails your SIS rides on",
+      "domain": "Interoperability Standards",
+      "difficulty": "core",
+      "xp": 120,
+      "estimatedMinutes": 12
+    },
+    {
+      "date": "2026-06-13",
+      "title": "Competency-Based Education: learning without seat time",
+      "domain": "Academic Models",
+      "difficulty": "core",
+      "xp": 115,
+      "estimatedMinutes": 11
+    },
+    {
+      "date": "2026-06-12",
+      "title": "PESC & electronic transcripts: records that travel",
+      "domain": "Records & Interoperability",
+      "difficulty": "advanced",
+      "xp": 115,
+      "estimatedMinutes": 10
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Caliper Analytics & xAPI: capturing learning events",
+      "domain": "Learning Analytics",
+      "difficulty": "advanced",
+      "xp": 120,
+      "estimatedMinutes": 11
+    },
+    {
+      "date": "2026-06-10",
+      "title": "IPEDS: the federal reporting every US college must do",
+      "domain": "Compliance & Reporting",
+      "difficulty": "core",
+      "xp": 105,
+      "estimatedMinutes": 10
+    },
+    {
+      "date": "2026-06-09",
+      "title": "Degree audit: mapping a transcript to a diploma",
+      "domain": "Academic Records",
+      "difficulty": "core",
+      "xp": 110,
+      "estimatedMinutes": 10
+    },
+    {
+      "date": "2026-06-08",
+      "title": "Title IV: the US federal financial-aid lifecycle",
+      "domain": "Financial Aid",
+      "difficulty": "core",
+      "xp": 120,
+      "estimatedMinutes": 12
+    },
+    {
+      "date": "2026-06-07",
+      "title": "LTI 1.3 & LTI Advantage: launching tools from the LMS",
+      "domain": "Interoperability Standards",
+      "difficulty": "core",
+      "xp": 115,
+      "estimatedMinutes": 11
+    },
+    {
+      "date": "2026-06-06",
+      "title": "SAML vs OIDC: how an SIS does single sign-on",
+      "domain": "Identity & Access",
+      "difficulty": "core",
+      "xp": 110,
+      "estimatedMinutes": 11
+    },
+    {
+      "date": "2026-06-05",
+      "title": "Credit hours, the Carnegie Unit & how GPA is computed",
+      "domain": "Academic Records",
+      "difficulty": "intro",
+      "xp": 100,
+      "estimatedMinutes": 10
+    },
+    {
+      "date": "2026-06-04",
+      "title": "FERPA: the privacy law every US SIS must obey",
+      "domain": "Compliance & Privacy",
+      "difficulty": "intro",
+      "xp": 90,
+      "estimatedMinutes": 9
+    }
+  ],
+  "topics": []
+}

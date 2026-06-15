@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arkbase Daily KT",
+  "type": "object",
+  "required": ["date", "title", "domain", "difficulty", "summary", "activities"],
+  "properties": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "title": { "type": "string", "minLength": 4 },
+    "domain": { "type": "string" },
+    "difficulty": { "enum": ["intro", "core", "advanced"] },
+    "summary": { "type": "string" },
+    "estimatedMinutes": { "type": "integer", "minimum": 1 },
+    "xp": { "type": "integer", "minimum": 0 },
+    "reflection": { "type": "string" },
+    "glossary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["term", "definition"],
+        "properties": {
+          "term": { "type": "string" },
+          "definition": { "type": "string" },
+          "sources": { "$ref": "#/$defs/sources" }
+        }
+      }
+    },
+    "activities": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/activity" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["title", "url"],
+      "properties": {
+        "title": { "type": "string" },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "date": { "type": "string" }
+      }
+    },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+    "activity": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["concept", "mcq", "diagram", "chart", "flashcard", "news", "takeaways"] },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["node"],
+            "properties": {
+              "node": { "type": "string" },
+              "title": { "type": "string" },
+              "caption": { "type": "string" }
+            }
+          }
+        }
+      },
+      "allOf": [
+        { "if": { "properties": { "type": { "const": "concept" } } },
+          "then": { "required": ["markdown", "sources"] } },
+        { "if": { "properties": { "type": { "const": "mcq" } } },
+          "then": { "required": ["question", "options", "answerIndex", "explanation", "sources"] } },
+        { "if": { "properties": { "type": { "const": "diagram" } } },
+          "then": { "required": ["mermaid"] } },
+        { "if": { "properties": { "type": { "const": "chart" } } },
+          "then": { "required": ["chart", "sources"] } },
+        { "if": { "properties": { "type": { "const": "flashcard" } } },
+          "then": { "required": ["front", "back"] } },
+        { "if": { "properties": { "type": { "const": "news" } } },
+          "then": { "required": ["headline", "summary", "source"] } },
+        { "if": { "properties": { "type": { "const": "takeaways" } } },
+          "then": { "required": ["items"] } }
+      ]
+    }
+  }
+}

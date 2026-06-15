@@ -1,0 +1,107 @@
+{
+  "date": "2026-06-04",
+  "title": "FERPA: the privacy law every US SIS must obey",
+  "domain": "Compliance & Privacy",
+  "difficulty": "intro",
+  "estimatedMinutes": 9,
+  "xp": 90,
+  "summary": "Before you store a single grade, you must know FERPA — the US federal law governing student education records. Who has rights, what counts as 'directory information', and when you may disclose without consent. (US-specific; other regions have their own laws like GDPR.)",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "What FERPA is",
+      "markdown": "**FERPA** (Family Educational Rights and Privacy Act) is a **US federal law** that gives parents — and **'eligible students'** (age 18+ or enrolled in a postsecondary institution) — the right to:\n\n- **inspect** their education records,\n- seek to **amend** them, and\n- have some control over the **disclosure** of personally identifiable information (PII) from those records.\n\nThe statute is **20 U.S.C. § 1232g**; the regulations are **34 CFR Part 99**. It applies to schools that receive funds from the U.S. Department of Education. ⚠️ FERPA is **US-specific** — the EU's GDPR and other national laws govern elsewhere.",
+      "sources": [
+        { "title": "What is FERPA? — U.S. Dept of Education (Student Privacy)", "url": "https://studentprivacy.ed.gov/faq/what-ferpa" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "ferpa-eligible",
+      "question": "Under FERPA, when do the parent's rights transfer to the student (becoming an 'eligible student')?",
+      "options": [
+        "When the student turns 18 OR enrolls in a postsecondary institution",
+        "Never — parents always hold the rights",
+        "Only when the student turns 21",
+        "Only upon graduation"
+      ],
+      "answerIndex": 0,
+      "explanation": "FERPA rights transfer to the 'eligible student' when they reach age 18 or enroll in a postsecondary institution at any age. For universities, that means the student — not the parent — generally holds FERPA rights.",
+      "sources": [{ "title": "What is FERPA? — U.S. Dept of Education", "url": "https://studentprivacy.ed.gov/faq/what-ferpa" }]
+    },
+    {
+      "type": "concept",
+      "title": "Directory information & the 'school official' exception",
+      "markdown": "Two ideas you'll encode into an SIS's access rules:\n\n- **Directory information** (34 CFR § 99.3): info that wouldn't generally be considered harmful if disclosed — e.g., **name, address, dates of attendance**. A school may disclose it **without consent** *if* it gives public notice and lets students **opt out**. It **excludes** things like SSN.\n- **The 'school official with a legitimate educational interest' exception** (§ 99.31): prior consent is **not** required to disclose to school officials who need the records to do their job — and this can include **contractors** performing outsourced institutional functions (relevant when ManageArk is the vendor!).",
+      "sources": [
+        { "title": "34 CFR § 99.3 (definitions) — eCFR", "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.3" },
+        { "title": "34 CFR § 99.31 (disclosure without consent) — eCFR", "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.31" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "ferpa-noconsent",
+      "question": "Which disclosure is generally allowed WITHOUT prior written consent under FERPA?",
+      "options": [
+        "To a school official with a legitimate educational interest",
+        "Selling records to advertisers",
+        "Publicly posting grades labeled by SSN",
+        "Handing records to anyone who asks"
+      ],
+      "answerIndex": 0,
+      "explanation": "§ 99.31 permits disclosure without consent to school officials (which can include contractors performing institutional services) who have a legitimate educational interest. The others are classic FERPA violations.",
+      "sources": [{ "title": "34 CFR § 99.31 — eCFR", "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.31" }]
+    },
+    {
+      "type": "mcq",
+      "id": "ferpa-directory",
+      "question": "Which is typically eligible to be 'directory information' (disclosable without consent unless the student opts out)?",
+      "options": [
+        "A student's name and dates of attendance",
+        "Social Security Number",
+        "Grades and GPA",
+        "Disciplinary records"
+      ],
+      "answerIndex": 0,
+      "explanation": "Directory information is limited to items not generally considered harmful, like name and dates of attendance. SSN, grades, and disciplinary records are NOT directory information.",
+      "sources": [{ "title": "34 CFR § 99.3 — eCFR", "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.3" }]
+    },
+    {
+      "type": "diagram",
+      "title": "FERPA disclosure decision",
+      "mermaid": "flowchart TD\n  A{Education record?} -->|no| Z[FERPA does not restrict]\n  A -->|yes| B{Directory info and not opted out?}\n  B -->|yes| Y[May disclose]\n  B -->|no| C{A 99.31 exception applies?}\n  C -->|yes: school official, etc.| Y\n  C -->|no| D[Get written consent]\n  D --> E[Disclose and log it]",
+      "steps": [
+        { "node": "A", "title": "Is it an education record?", "caption": "Records directly related to a student and maintained by the institution." },
+        { "node": "B", "title": "Directory information?", "caption": "If it's directory info and the student hasn't opted out, you may disclose." },
+        { "node": "C", "title": "Does a §99.31 exception apply?", "caption": "E.g., a school official with a legitimate educational interest." },
+        { "node": "D", "title": "Otherwise get written consent", "caption": "No exception → you need the eligible student's written consent." },
+        { "node": "E", "title": "Disclose and log", "caption": "Record the disclosure as required." }
+      ],
+      "caption": "The core FERPA question is always: do I need consent, or does an exception apply?",
+      "sources": [
+        { "title": "34 CFR §§ 99.30–99.31 — eCFR", "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.31" }
+      ]
+    },
+    {
+      "type": "flashcard",
+      "front": "What is an **'eligible student'** under FERPA?",
+      "back": "A student who has reached **age 18** OR who is **enrolled in a postsecondary institution** at any age. FERPA rights transfer from the parent to that student."
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**FERPA** = US law (20 U.S.C. § 1232g / 34 CFR Part 99) protecting education records.",
+        "At a **university**, the **student** holds the rights (eligible student).",
+        "**Directory information** (name, dates of attendance) is disclosable without consent if the student hasn't opted out; **SSN/grades are not**.",
+        "Disclosure to a **school official / contractor with legitimate educational interest** needs no consent — design ManageArk's access model around that exception."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "FERPA", "definition": "Family Educational Rights and Privacy Act — US federal law (20 U.S.C. § 1232g; 34 CFR Part 99) giving students/parents rights over education records and limiting disclosure of PII.", "sources": [{ "title": "What is FERPA?", "url": "https://studentprivacy.ed.gov/faq/what-ferpa" }] },
+    { "term": "Education record", "definition": "A record directly related to a student and maintained by an educational institution or party acting for it.", "sources": [{ "title": "34 CFR § 99.3", "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.3" }] },
+    { "term": "Eligible student", "definition": "A student who is 18+ or enrolled in a postsecondary institution; FERPA rights transfer from parent to this student.", "sources": [{ "title": "What is FERPA?", "url": "https://studentprivacy.ed.gov/faq/what-ferpa" }] },
+    { "term": "Directory information", "definition": "FERPA category of non-harmful info (e.g., name, dates of attendance) that may be disclosed without consent unless the student opts out; excludes SSN.", "sources": [{ "title": "34 CFR § 99.3", "url": "https://www.ecfr.gov/current/title-34/part-99/section-99.3" }] }
+  ],
+  "reflection": "ManageArk will often be the 'school official' contractor under FERPA. How would you encode 'legitimate educational interest' as OpenFGA relationships so access is need-to-know rather than role-blanket?"
+}

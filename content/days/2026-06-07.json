@@ -1,0 +1,100 @@
+{
+  "date": "2026-06-07",
+  "title": "LTI 1.3 & LTI Advantage: launching tools from the LMS",
+  "domain": "Interoperability Standards",
+  "difficulty": "core",
+  "estimatedMinutes": 11,
+  "xp": 115,
+  "summary": "When a student clicks an external tool inside Canvas or Moodle, LTI is what makes it work securely. Today: how LTI 1.3 replaced the old OAuth signing with OIDC + JWTs, and the three LTI Advantage services that share rosters and grades.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "What LTI is, and why 1.3 matters",
+      "markdown": "**LTI (Learning Tools Interoperability)** is a **1EdTech** standard that lets a learning platform (LMS) integrate remote tools and content in a standard way.\n\n**LTI 1.3** (Core spec version 3, issued **16 April 2019**) modernized security: it **replaced OAuth 1.0a message signing** with **OpenID Connect**, **signed JWTs**, and **OAuth 2.0** workflows.\n\nOn top of Core 1.3 sit the **LTI Advantage** services:\n- **Deep Linking 2.0** — pick content from the tool inside the LMS;\n- **Names & Role Provisioning Services (NRPS) 2.0** — securely share the **course roster**;\n- **Assignment & Grade Services (AGS) 2.0** — write grades back to the LMS gradebook.",
+      "sources": [
+        { "title": "LTI Core Specification 1.3 — 1EdTech/IMS", "url": "https://www.imsglobal.org/spec/lti/v1p3" },
+        { "title": "LTI Advantage Conformance Certification Guide — 1EdTech", "url": "https://www.imsglobal.org/spec/lti/v1p3/cert" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "lti-security",
+      "question": "LTI 1.3 secures tool launches using which technologies (replacing OAuth 1.0a signing)?",
+      "options": [
+        "OpenID Connect + signed JWT + OAuth 2.0",
+        "SAML XML assertions",
+        "HTTP Basic auth",
+        "API keys placed in the URL"
+      ],
+      "answerIndex": 0,
+      "explanation": "LTI 1.3 uses the OIDC third-party-initiated login, signed JWTs to carry launch claims, and OAuth 2.0 for service calls — a big security upgrade over LTI 1.1's OAuth 1.0a signing.",
+      "sources": [{ "title": "LTI Core Specification 1.3", "url": "https://www.imsglobal.org/spec/lti/v1p3" }]
+    },
+    {
+      "type": "mcq",
+      "id": "lti-advantage",
+      "question": "Which three services make up LTI Advantage?",
+      "options": [
+        "Deep Linking, Names & Role Provisioning (NRPS), Assignment & Grade (AGS)",
+        "Login, Logout, Audit",
+        "Rostering, Gradebook, Resource",
+        "Pell, ISIR, R2T4"
+      ],
+      "answerIndex": 0,
+      "explanation": "LTI Advantage = Deep Linking 2.0 + NRPS 2.0 + AGS 2.0 on top of LTI Core 1.3. (Watch the trap: 'Rostering, Gradebook, Resource' is OneRoster 1.2, a different standard.)",
+      "sources": [{ "title": "LTI Advantage Certification Guide", "url": "https://www.imsglobal.org/spec/lti/v1p3/cert" }]
+    },
+    {
+      "type": "mcq",
+      "id": "lti-nrps",
+      "question": "What does Names & Role Provisioning Services (NRPS) give an LTI tool?",
+      "options": [
+        "The course roster / enrollment data",
+        "The student's financial aid award",
+        "The institution's IPEDS submission",
+        "The LMS server logs"
+      ],
+      "answerIndex": 0,
+      "explanation": "NRPS securely shares the roster/enrollment of the launching context with the tool, so it knows who is in the course.",
+      "sources": [{ "title": "LTI Core Specification 1.3", "url": "https://www.imsglobal.org/spec/lti/v1p3" }]
+    },
+    {
+      "type": "diagram",
+      "title": "LTI 1.3 resource-link launch",
+      "mermaid": "flowchart TD\n  A[User clicks the LTI link] --> B[Platform sends OIDC login init]\n  B --> C[Tool returns auth request]\n  C --> D[Platform posts signed id_token JWT]\n  D --> E[Tool validates the JWT]\n  E --> F[Tool renders the resource]",
+      "steps": [
+        { "node": "A", "title": "Click the link", "caption": "A user clicks an external tool link inside the LMS." },
+        { "node": "B", "title": "OIDC login init", "caption": "The platform starts the OpenID Connect third-party login." },
+        { "node": "C", "title": "Tool auth request", "caption": "The tool responds with an authentication request." },
+        { "node": "D", "title": "Signed id_token", "caption": "The platform POSTs a signed JWT carrying the launch claims." },
+        { "node": "E", "title": "Validate JWT", "caption": "The tool verifies the JWT signature and claims." },
+        { "node": "F", "title": "Render", "caption": "The tool renders the resource for the user." }
+      ],
+      "caption": "Every secure LTI 1.3 launch is an OIDC handshake carrying a signed JWT — no shared secrets in the URL.",
+      "sources": [{ "title": "LTI Core Specification 1.3", "url": "https://www.imsglobal.org/spec/lti/v1p3" }]
+    },
+    {
+      "type": "news",
+      "headline": "Moodle 5.1 certified for LTI Assignment & Grade Services 2.0",
+      "summary": "On **April 7, 2026**, 1EdTech's certification registry recorded **Moodle 5.1** as certified for **LTI AGS 2.0** — the LTI Advantage service that writes grades from external tools back into the LMS gradebook. Certification matters: it's how institutions trust that two products will actually interoperate.",
+      "date": "2026-04-07",
+      "source": { "title": "Moodle certifications — 1EdTech", "url": "https://site.imsglobal.org/certifications/moodle/moodle" }
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**LTI 1.3** (2019) swapped OAuth 1.0a for **OIDC + signed JWT + OAuth 2.0**.",
+        "**LTI Advantage** = **Deep Linking + NRPS + AGS** — content, rosters, grades.",
+        "Don't confuse LTI Advantage's three services with **OneRoster's** Rostering/Gradebook/Resource.",
+        "**Certification** (e.g., Moodle 5.1 + AGS) is the real interoperability guarantee."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "LTI", "definition": "Learning Tools Interoperability (1EdTech) — standard for launching external tools/content from an LMS; v1.3 uses OIDC + signed JWTs.", "sources": [{ "title": "LTI Core 1.3", "url": "https://www.imsglobal.org/spec/lti/v1p3" }] },
+    { "term": "AGS", "definition": "Assignment & Grade Services 2.0 — the LTI Advantage service that syncs grades from a tool into the LMS gradebook.", "sources": [{ "title": "LTI Advantage Cert Guide", "url": "https://www.imsglobal.org/spec/lti/v1p3/cert" }] },
+    { "term": "NRPS", "definition": "Names & Role Provisioning Services 2.0 — LTI Advantage service that shares a course's roster/enrollments with a tool.", "sources": [{ "title": "LTI Advantage Cert Guide", "url": "https://www.imsglobal.org/spec/lti/v1p3/cert" }] },
+    { "term": "Deep Linking", "definition": "LTI Advantage service for selecting tool content from within the LMS and embedding it.", "sources": [{ "title": "LTI Advantage Cert Guide", "url": "https://www.imsglobal.org/spec/lti/v1p3/cert" }] }
+  ],
+  "reflection": "If ManageArk acts as an LTI platform (or tool), which Advantage service would you implement first — NRPS to share rosters, or AGS to collect grades — and how does that compare to going OneRoster instead?"
+}

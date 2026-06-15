@@ -1,0 +1,98 @@
+{
+  "date": "2026-06-11",
+  "title": "Caliper Analytics & xAPI: capturing learning events",
+  "domain": "Learning Analytics",
+  "difficulty": "advanced",
+  "estimatedMinutes": 11,
+  "xp": 120,
+  "summary": "Once tools talk to each other, the next question is: what is the learner actually doing? Two standards capture learning events at scale — 1EdTech's Caliper Analytics and ADL's xAPI. Today: how a Caliper event is shaped, how it flows to an event store, and how the two specs differ.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "What Caliper is (and how xAPI differs)",
+      "markdown": "**Caliper Analytics** is a **1EdTech** technical specification describing a **structured vocabulary** for collecting learning and usage data from digital resources and tools. The current version is **Caliper 1.2** (issued **27 March 2020**).\n\nA **Caliper Event** describes an **Actor → Action → Object** relationship at a moment in time, with the allowed **Action vocabulary controlled by Metric Profiles** (domain-specific event types).\n\n**xAPI** (Experience API) is the other major option, developed by **ADL**. Key differences:\n- **Caliper** uses **JSON-LD** payloads with controlled profiles; **xAPI** uses **open, extensible JSON** statements.\n- They are **not equivalent** — 1EdTech itself frames the choice as 'horses for courses'.",
+      "sources": [
+        { "title": "Caliper Analytics 1.2 Specification — 1EdTech/IMS", "url": "https://www.imsglobal.org/spec/caliper/v1p2" },
+        { "title": "Initial xAPI / Caliper Comparison — 1EdTech/IMS", "url": "https://www.imsglobal.org/initial-xapicaliper-comparison" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "caliper-event",
+      "question": "A Caliper Event is structured around which relationship?",
+      "options": [
+        "Actor – Action – Object at a moment in time",
+        "Request – Response – Acknowledge",
+        "Subject – Predicate – Price",
+        "User – Password – Session"
+      ],
+      "answerIndex": 0,
+      "explanation": "A Caliper Event captures an Actor performing an Action on an Object at a time, with the Action vocabulary constrained by Metric Profiles.",
+      "sources": [{ "title": "xAPI/Caliper Comparison — 1EdTech", "url": "https://www.imsglobal.org/initial-xapicaliper-comparison" }]
+    },
+    {
+      "type": "mcq",
+      "id": "caliper-vs-xapi",
+      "question": "How do Caliper and xAPI differ in payload format?",
+      "options": [
+        "Caliper uses JSON-LD; xAPI uses open/extensible JSON statements",
+        "Both use XML",
+        "Caliper uses CSV; xAPI uses YAML",
+        "They are byte-for-byte identical"
+      ],
+      "answerIndex": 0,
+      "explanation": "Caliper serializes as JSON-LD with controlled Metric Profiles; xAPI uses more open, extensible JSON statements. They are not interchangeable.",
+      "sources": [{ "title": "xAPI/Caliper Comparison — 1EdTech", "url": "https://www.imsglobal.org/initial-xapicaliper-comparison" }]
+    },
+    {
+      "type": "mcq",
+      "id": "caliper-who",
+      "question": "Who maintains each specification?",
+      "options": [
+        "xAPI by ADL; Caliper by 1EdTech",
+        "Both by OASIS",
+        "Both by NCES",
+        "Both by ADL"
+      ],
+      "answerIndex": 0,
+      "explanation": "xAPI is developed by the Advanced Distributed Learning (ADL) Initiative; Caliper Analytics is a 1EdTech specification.",
+      "sources": [{ "title": "xAPI/Caliper Comparison — 1EdTech", "url": "https://www.imsglobal.org/initial-xapicaliper-comparison" }]
+    },
+    {
+      "type": "diagram",
+      "title": "A Caliper event, end to end",
+      "mermaid": "flowchart TD\n  A[Sensor detects activity] --> B[Create Event: actor/action/object]\n  B --> C[Wrap in an Envelope]\n  C --> D[Serialize as JSON-LD]\n  D --> E[HTTP POST to endpoint]\n  E --> F[Event store persists]",
+      "steps": [
+        { "node": "A", "title": "Sensor detects", "caption": "A Caliper Sensor in the tool observes a learning activity." },
+        { "node": "B", "title": "Create Event", "caption": "Build the Actor–Action–Object event for that moment." },
+        { "node": "C", "title": "Wrap in Envelope", "caption": "The Envelope adds sensor metadata for transport." },
+        { "node": "D", "title": "Serialize JSON-LD", "caption": "Encode the payload as linked-data JSON." },
+        { "node": "E", "title": "POST to endpoint", "caption": "Send the envelope to the analytics endpoint." },
+        { "node": "F", "title": "Persist", "caption": "The event store retains it for analytics." }
+      ],
+      "caption": "At university scale this is a firehose — the event store, not the schema, is where the hard engineering lives.",
+      "sources": [{ "title": "Caliper Analytics 1.2 Specification — 1EdTech", "url": "https://www.imsglobal.org/spec/caliper/v1p2" }]
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Caliper **Sensor** and **Envelope**?",
+      "back": "A **Sensor** is the library in a tool that emits Caliper data. An **Envelope** is the transport container that wraps one or more events with sensor metadata before they're POSTed to the endpoint."
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "**Caliper** (1EdTech, v1.2 / 2020) models learning as **Actor–Action–Object** events in **JSON-LD**.",
+        "**Metric Profiles** constrain the allowed actions per domain.",
+        "**xAPI** (ADL) is the open-JSON alternative — **not equivalent**; choose per use case.",
+        "At scale, the **event store** is the real engineering challenge — exactly the kind of scale infra ManageArk builds from day 1."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "Caliper Analytics", "definition": "A 1EdTech specification with a structured vocabulary for capturing learning/usage events (Actor–Action–Object) in JSON-LD; current version 1.2.", "sources": [{ "title": "Caliper 1.2 Spec", "url": "https://www.imsglobal.org/spec/caliper/v1p2" }] },
+    { "term": "Sensor", "definition": "The Caliper library embedded in a tool that emits learning-event data.", "sources": [{ "title": "Caliper 1.2 Spec", "url": "https://www.imsglobal.org/spec/caliper/v1p2" }] },
+    { "term": "Metric Profile", "definition": "A Caliper domain vocabulary that constrains which actions/events are valid (e.g., assessment, media).", "sources": [{ "title": "xAPI/Caliper Comparison", "url": "https://www.imsglobal.org/initial-xapicaliper-comparison" }] },
+    { "term": "xAPI", "definition": "Experience API by ADL — an open, extensible JSON statement format for learning records; an alternative to Caliper.", "sources": [{ "title": "xAPI/Caliper Comparison", "url": "https://www.imsglobal.org/initial-xapicaliper-comparison" }] }
+  ],
+  "reflection": "Would you emit Caliper events for ManageArk's learning interactions, xAPI, or both behind an adapter? What event store persists billions of events across tenants while keeping per-tenant isolation?"
+}

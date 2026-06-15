@@ -1,0 +1,101 @@
+{
+  "date": "2026-06-09",
+  "title": "Degree audit: mapping a transcript to a diploma",
+  "domain": "Academic Records",
+  "difficulty": "core",
+  "estimatedMinutes": 10,
+  "xp": 110,
+  "summary": "A degree audit answers the question every student asks: 'what's left before I graduate?' Today: how an audit maps completed and in-progress courses to requirement blocks, what a 'what-if' audit does, and why a clean audit still doesn't guarantee a diploma.",
+  "activities": [
+    {
+      "type": "concept",
+      "title": "What a degree audit does",
+      "markdown": "A **degree audit** is an advising document that **maps a student's degree requirements against their academic transcript**, giving a real-time read on progress toward graduation.\n\nIt evaluates **completed, in-progress, and planned** coursework — in-progress courses typically show an **'IP'** grade. The requirements are organized into **requirement blocks** (degree / major / minor) made of rules: credit counts, GPA minimums, specific courses, and electives.\n\nA powerful feature is the **'What-If' audit**: it hypothetically applies a **different major or minor** to show how existing courses would fit and what would remain — **without changing** the student's actual program.",
+      "sources": [
+        { "title": "Degree Audit — Penn State Registrar", "url": "https://www.registrar.psu.edu/degree-planning/degree-audit.cfm" },
+        { "title": "Degree Planning Tools (DegreeWorks) — UNH", "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools" }
+      ]
+    },
+    {
+      "type": "mcq",
+      "id": "audit-purpose",
+      "question": "What does a degree audit do?",
+      "options": [
+        "Maps a student's completed/in-progress courses against program requirements",
+        "Calculates the student's financial aid award",
+        "Books classrooms for the term",
+        "Stores disciplinary records"
+      ],
+      "answerIndex": 0,
+      "explanation": "A degree audit compares the transcript (completed, in-progress, transfer) against the requirement blocks for the program, showing what's satisfied and what remains.",
+      "sources": [{ "title": "Degree Audit — Penn State Registrar", "url": "https://www.registrar.psu.edu/degree-planning/degree-audit.cfm" }]
+    },
+    {
+      "type": "mcq",
+      "id": "what-if",
+      "question": "A 'What-If' audit…",
+      "options": [
+        "hypothetically applies a different major/minor without changing the actual one",
+        "immediately changes the student's major",
+        "deletes completed courses",
+        "submits the graduation application"
+      ],
+      "answerIndex": 0,
+      "explanation": "A What-If audit is a non-destructive simulation: it shows how existing courses map to a different program so a student can compare paths, without altering their real major.",
+      "sources": [{ "title": "Degree Planning Tools — UNH", "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools" }]
+    },
+    {
+      "type": "mcq",
+      "id": "final-audit",
+      "question": "Every requirement box is checked in the audit. Is graduation guaranteed?",
+      "options": [
+        "No — the registrar runs a final audit after final grades post",
+        "Yes, automatically",
+        "Only if the GPA is exactly 4.0",
+        "Only for transfer students"
+      ],
+      "answerIndex": 0,
+      "explanation": "A self-service audit is a planning tool. After a student applies to graduate, the registrar performs a final audit once final grades are in to officially clear the degree.",
+      "sources": [{ "title": "Degree Planning Tools — UNH", "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools" }]
+    },
+    {
+      "type": "diagram",
+      "title": "How a degree audit evaluates",
+      "mermaid": "flowchart TD\n  A[Load requirement blocks] --> B[Pull transcript: done, in-progress, transfer]\n  B --> C[Map courses to requirements]\n  C --> D[Check unmet rules: GPA, credits]\n  D --> E[Show remaining requirements]\n  E --> F[Registrar final audit gates graduation]",
+      "steps": [
+        { "node": "A", "title": "Load requirement blocks", "caption": "Degree, major, and minor rule sets for the student's catalog year." },
+        { "node": "B", "title": "Pull the transcript", "caption": "Completed, in-progress (IP), and transfer coursework." },
+        { "node": "C", "title": "Map courses → rules", "caption": "Apply each course to the requirement it satisfies." },
+        { "node": "D", "title": "Check unmet rules", "caption": "Evaluate remaining credits, GPA minimums, and specific-course rules." },
+        { "node": "E", "title": "Show what's left", "caption": "Display outstanding requirements to the student/advisor." },
+        { "node": "F", "title": "Final audit", "caption": "After grades post, the registrar's final audit clears graduation." }
+      ],
+      "caption": "The audit engine is a rules engine over a transcript — and a clean self-service audit is necessary but not sufficient.",
+      "sources": [
+        { "title": "Degree Planning Tools — UNH", "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools" },
+        { "title": "Degree Audit — Penn State Registrar", "url": "https://www.registrar.psu.edu/degree-planning/degree-audit.cfm" }
+      ]
+    },
+    {
+      "type": "flashcard",
+      "front": "Why is a 'all boxes checked' audit **not** a guaranteed diploma?",
+      "back": "Because the self-service audit reflects in-progress work and planning. The **registrar's final audit after final grades** is the official graduation clearance — in-progress courses must actually be passed."
+    },
+    {
+      "type": "takeaways",
+      "items": [
+        "A **degree audit** = a rules engine mapping the **transcript** to **requirement blocks**.",
+        "It counts **completed, in-progress (IP), and transfer** work.",
+        "**What-If** audits simulate a different program **non-destructively**.",
+        "**Graduation clearance** is a separate **final audit** by the registrar after grades post."
+      ]
+    }
+  ],
+  "glossary": [
+    { "term": "Degree audit", "definition": "A progress report mapping a student's transcript against degree/major/minor requirements in real time.", "sources": [{ "title": "Penn State Registrar", "url": "https://www.registrar.psu.edu/degree-planning/degree-audit.cfm" }] },
+    { "term": "What-If audit", "definition": "A non-destructive simulation applying a hypothetical major/minor to existing courses.", "sources": [{ "title": "UNH DegreeWorks", "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools" }] },
+    { "term": "Requirement block", "definition": "A grouped set of degree/major/minor rules (credits, GPA, specific courses) the audit evaluates.", "sources": [{ "title": "UNH DegreeWorks", "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools" }] },
+    { "term": "Graduation clearance", "definition": "The registrar's final audit after final grades confirming all requirements are met.", "sources": [{ "title": "UNH DegreeWorks", "url": "https://cps.unh.edu/online/resources/current-students/academics-advising/degree-planning-tools" }] }
+  ],
+  "reflection": "How would you represent requirement blocks and rule evaluation in ManageArk so a 'what-if' audit reuses the same engine as the real audit — without mutating the student's actual program record?"
+}
